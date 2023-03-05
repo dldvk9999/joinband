@@ -1,7 +1,25 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
+import path from "path";
+import { fileURLToPath } from "url";
 
-module.exports = nextConfig
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const nextConfig = {
+    reactStrictMode: false,
+    swcMinify: true,
+    // async rewrites() {
+    //     return [
+    //         {
+    //             source: "/api/:path*",
+    //             destination: `https://www.xxx.ga/api/:path*`,
+    //         },
+    //     ];
+    // },
+    sassOptions: {
+        includePaths: [path.join(__dirname, "styles")],
+        prependData: `@import "styles/_variables.scss"; @import "styles/_mixins.scss";`,
+    },
+};
+
+export default nextConfig;

@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JoinBand
 
-## Getting Started
+## 유저
 
-First, run the development server:
+-   밴드 회원 모집할 수 있음
+-   사용자는 일반사용자/무대관리자/합주실관리자로 나뉨
+-   일반 사용자 프로필에서 자신을 소개할 수 있는 영상 or 링크 첨부, 소개하는 글 작성 가능
+-   일반 사용자들을 그룹화 하여 조회 가능하고 그룹 신청 내역들을 조회 가능
+-   그룹장이 합주실 예약 및 조회 가능(취소, 수정은 추후)
+-   최초 회원가입은 자동으로 일반사용자로 되며 무대관리자/합주실관리자로 상시 전환 가능
+-   당근마켓처럼 그 사람의 평가 확인 가능(평가는 무조건 익명으로)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## 유저정보
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   회원가입(이름, 출생, 닉네임, 사는 지역, 파트, 메일주소, 아이디, 비밀번호)
+-   정보 조회 및 수정(이름, 닉네임, 사는 지역, 파트, 메일주소, 아이디, 비번초기화)
+-   회원 탈퇴
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 게시판
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+-   기타, 드럼, 베이스 등 태그를 달아서 자유 게시판 형태로 글 작성(디폴트: 기타, 필터링 가능)
+-   페이지네이션
+-   검색 가능
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 회원 모집
 
-## Learn More
+-   각 그룹에서 파트 별 회원을 모집하는 글 작성 가능
+-   신청은 일반 사용자만 가능하고 신청 시 그룹 사용자에게 신청 데이터 발송(그룹 사용자는 신청내역에서 신청한 일반 사용자들의 정보를 가져옴. 그래서 프로필이나 연락으로 판단)
 
-To learn more about Next.js, take a look at the following resources:
+## 그룹 추가
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   각 일반 사용자의 메일로 그룹 초대 링크 발송하여 그룹 초대
+-   그룹장은 그룹 생성자가 자동으로 됨. 변경가능
+-   해당 그룹을 소개하는 영상 및 소개 글 업로드 가능
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 합주실 예약
 
-## Deploy on Vercel
+-   합주실을 검색하여 예약 가능한 곳 필터링 후 결제
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 공연 모집
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   어디서 공연을 해달라는 모집글 작성 가능. 그룹장이 그룹에 한해 생성 가능
+-   장소, 설명, 상금, 이미지
