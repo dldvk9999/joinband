@@ -1,0 +1,11 @@
+.homeCarousel {
+    @include area(100%, 50rem);
+    max-height: 50rem;
+    overflow-y: hidden;
+}
+
+.homeCarouselImage {
+    height: 100vh;
+    object-fit: cover;
+    filter: blur(5px);
+}

@@ -1,0 +1,29 @@
+.header {
+    @include view(flex, space-between);
+    @include area(100%, $headerHeight);
+    @include bcolor(transparent, $white);
+    position: absolute;
+    padding: 0 2.5rem;
+    border-bottom: 1px solid $sepline;
+    font-size: 0.9rem;
+    z-index: 100;
+    transition: all 0.5s ease-in-out;
+
+    & > div {
+        @include view(flex, center, center);
+        gap: 2rem;
+
+        & > a:hover {
+            color: $a-tag-color;
+        }
+    }
+
+    &:hover {
+        @include bcolor($white, $black);
+    }
+}
+
+.headerLogo > a {
+    @include view(flex, center, center);
+    font-size: 1.4rem;
+}
