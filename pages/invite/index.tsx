@@ -1,4 +1,4 @@
-import Invite from "../../components/invite/Invite";
+import Invite from "../../components/Invite/Invite";
 
 export default function Index() {
     return <Invite />;
