@@ -1,5 +1,5 @@
 import Login from "../../components/Login/Login";
 
-export default function Index() {
+export default function signup() {
     return <Login type="signup" />;
 }
