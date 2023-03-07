@@ -5,6 +5,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
         Helvetica Neue, sans-serif;
     background-color: $body-bcolor;
+    transition: all 1s cubic-bezier(0.34, -0.6, 0.515, 1.57);
 }
 
 a {

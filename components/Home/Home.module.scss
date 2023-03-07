@@ -1,11 +1,63 @@
 .homeCarousel {
-    @include area(100%, 50rem);
-    max-height: 50rem;
-    overflow-y: hidden;
+    @include area(100%, 100%);
 }
 
 .homeCarouselImage {
     height: 100vh;
     object-fit: cover;
     filter: blur(5px);
+}
+
+// Carousel Front
+.homeCarouselFront {
+    @include area(100%, 100vh);
+    @include bcolor(transparent, white);
+    @include view(flex, center, center);
+    z-index: 1;
+    position: absolute;
+}
+
+.homeCarouselShadow {
+    @include area(36%, 17%);
+    box-shadow: 0px 0px 50px 50px black;
+    z-index: 1;
+    position: absolute;
+    border-radius: 50%;
+    background-color: $black;
+    opacity: 0.65;
+}
+
+.homeCarouselTitle {
+    @include view(flex, center, center);
+    flex-direction: column;
+    z-index: 2;
+    & > p {
+        font-size: 2rem;
+        margin: 0;
+    }
+    & > h1 {
+        font-size: 7rem;
+        margin: 0;
+    }
+}
+
+.homeBand {
+    @include area(100%, 100%);
+}
+
+.homeBandImages {
+    @include area(50%, 100vh);
+    @include view(grid, center, center);
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+
+    & > img {
+        @include area(100%, calc(100vh / 2));
+        max-width: 22rem;
+        max-height: 23rem;
+        padding: 4rem;
+        border: 1px solid $neon-sign;
+        border-radius: 3rem;
+    }
 }
