@@ -42,22 +42,52 @@
 }
 
 .homeBand {
-    @include area(100%, 100%);
+    @include area(100%, 100vh);
+    @include view(flex, center, center);
 }
 
 .homeBandImages {
-    @include area(50%, 100vh);
+    @include area(50%, 80%);
     @include view(grid, center, center);
+    @include border-radius(1px solid transparent, 3rem);
     justify-items: center;
     grid-template-columns: 1fr 1fr;
     margin: 0 auto;
+    padding: 2rem;
+    transition: border-color 1s ease-in-out;
 
     & > img {
-        @include area(100%, calc(100vh / 2));
-        max-width: 22rem;
-        max-height: 23rem;
-        padding: 4rem;
-        border: 1px solid $neon-sign;
-        border-radius: 3rem;
+        @include area(11rem, 11rem);
+        @include border-radius(1px solid $neon-sign, 3rem);
+        opacity: 0;
+        transition: opacity 1s ease-in-out, border-color 1s ease-in-out, transform 1s ease-in-out;
     }
+}
+
+.homeBandSlide {
+    opacity: 1 !important;
+}
+
+.homeBandHideBorder {
+    border-color: transparent !important;
+}
+
+.homeBandShowBorder {
+    border-color: $neon-sign !important;
+}
+
+.homeBandTransformCenter {
+    transform: translate(0, 0);
+}
+.homeBandTransform1 {
+    transform: translate(-10%, -10%);
+}
+.homeBandTransform2 {
+    transform: translate(10%, -10%);
+}
+.homeBandTransform3 {
+    transform: translate(-10%, 10%);
+}
+.homeBandTransform4 {
+    transform: translate(10%, 10%);
 }

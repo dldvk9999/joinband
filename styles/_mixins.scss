@@ -13,3 +13,8 @@
     background-color: $background-color;
     color: $color;
 }
+
+@mixin border-radius($border, $border-radius) {
+    border: $border;
+    border-radius: $border-radius;
+}
