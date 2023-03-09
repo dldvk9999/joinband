@@ -17,6 +17,30 @@ main {
     min-height: calc(100vh - 3rem);
 }
 
+input,
+select {
+    @include border-radius(1px solid $sepline, 3rem);
+    @include area(25rem, 3rem);
+    padding: 1rem;
+    &:focus {
+        outline: 1px solid $black;
+    }
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
+}
+
+button {
+    @include border-radius(1px solid $sepline, 3rem);
+    @include area(6rem, 2.5rem);
+    @include bcolor($a-tag-color, $white);
+    cursor: pointer;
+}
+
 *,
 *::before,
 *::after {
@@ -38,6 +62,18 @@ main {
 ::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 10px;
+}
+
+@media (max-width: 500px) {
+    input,
+    select {
+        width: 15rem;
+        font-size: 0.5rem;
+        padding: 0.6rem;
+    }
+    p {
+        font-size: 0.5rem !important;
+    }
 }
 
 /* Dark Mode */

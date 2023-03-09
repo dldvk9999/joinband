@@ -1,0 +1,114 @@
+.login {
+    @include view(flex, center, center);
+    @include area(100%, 100vh);
+    min-width: 400px;
+
+    & > img {
+        @include area(100%, 100vh);
+        position: fixed;
+        z-index: 0;
+        filter: blur(5px);
+        top: 0;
+    }
+
+    & > form {
+        @include view(flex, center, center);
+        @include border-radius(1px solid transparent, 3rem);
+        width: 30rem;
+        margin-top: $headerHeight;
+        flex-direction: column;
+        z-index: 1;
+        gap: 1rem;
+        background-color: $white;
+        padding: 2rem;
+        box-shadow: 10px 10px 40px -3px gray;
+    }
+}
+
+.loginLogin {
+    min-height: 24rem;
+}
+
+.loginSignup {
+    min-height: 48rem;
+}
+
+.loginPasswordCheck,
+.loginNicknameCheck {
+    @include area(25rem, 3rem);
+    @include view(flex, flex-end, center);
+
+    & > p,
+    & > button {
+        @include view(flex, center, center);
+        position: absolute;
+        padding: 1rem;
+        font-size: 0.7rem;
+    }
+}
+
+.loginPasswordTrue {
+    color: $blue;
+}
+
+.loginPasswordFalse {
+    color: $red;
+}
+
+.loginNicknameCheckBtn {
+    @include area(5rem, 3rem);
+    @include border-radius(1px solid #dd3b4b, 0 3rem 3rem 0 !important);
+    background-color: #ef3b4b;
+}
+
+.loginBirth {
+    @include area(25rem, 3rem);
+    @include view(grid, center, center);
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    & > p {
+        font-size: 0.8rem;
+    }
+    & > div > input {
+        @include area(fit-content, 3rem);
+        font-size: 0.9rem;
+    }
+    & > div > label {
+        @include bcolor($white, $black);
+        padding: 0 0.4rem;
+        position: absolute;
+        font-size: 0.75rem;
+        transform: translate(26px, -8px);
+    }
+}
+
+@media (max-width: 500px) {
+    .login {
+        padding: 1rem;
+    }
+
+    .loginPasswordCheck,
+    .loginNicknameCheck {
+        width: 15rem;
+        & > button,
+        & > p {
+            font-size: 0.5rem;
+            padding: 0.5rem;
+        }
+    }
+
+    .loginBirth {
+        width: 15rem;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .loginBirthTitle {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .login {
+        padding: 0;
+    }
+}
