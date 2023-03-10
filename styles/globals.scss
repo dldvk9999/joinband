@@ -41,6 +41,26 @@ button {
     cursor: pointer;
 }
 
+nav {
+    @include area(100vw, 100vh);
+    @include bcolor($body-bcolor, $white);
+    position: fixed;
+    right: -300px;
+    top: 0;
+    max-width: 300px;
+    padding: 1rem;
+    transition: right 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px 2px var(--gray);
+}
+
+nav.active {
+    right: 0px;
+}
+
+hr {
+    width: 100%;
+}
+
 *,
 *::before,
 *::after {

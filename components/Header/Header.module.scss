@@ -8,6 +8,7 @@
     font-size: 0.9rem;
     z-index: 100;
     transition: all 0.5s ease-in-out;
+    fill: $white;
 
     & > div {
         @include view(flex, center, center);
@@ -20,10 +21,45 @@
 
     &:hover {
         @include bcolor($white, $black);
+        fill: $black;
     }
 }
 
 .headerLogo > a {
     @include view(flex, center, center);
     font-size: 1.4rem;
+}
+
+.headerNavBtn {
+    @include bcolor(transparent, $white);
+    @include area(fit-content, fit-content);
+    border: 1px solid transparent;
+}
+
+.headerNavClose,
+.headerNavList {
+    display: flex;
+    padding: 1rem;
+}
+
+.headerNavClose > button > svg {
+    rotate: 180deg;
+    fill: $white;
+}
+
+.headerNavList {
+    * {
+        list-style: none;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+
+        hr {
+            width: 100%;
+        }
+    }
 }
