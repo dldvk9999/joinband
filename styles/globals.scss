@@ -6,6 +6,7 @@ body {
         Helvetica Neue, sans-serif;
     background-color: $body-bcolor;
     transition: all 1s cubic-bezier(0.34, -0.6, 0.515, 1.57);
+    min-width: 25rem;
 }
 
 a {

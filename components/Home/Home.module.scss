@@ -1,5 +1,6 @@
 .homeCarousel {
     @include area(100%, 100%);
+    @include view(flex, center, center);
 }
 
 .homeCarouselImage {
@@ -90,4 +91,23 @@
 }
 .homeBandTransform4 {
     transform: translate(10%, 10%);
+}
+
+@media (max-width: 700px) {
+    .homeCarouselTitle {
+        & > p {
+            font-size: 1rem;
+        }
+        & > h1 {
+            font-size: 5rem;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .homeCarouselTitle {
+        & > h1 {
+            font-size: 3rem;
+        }
+    }
 }
