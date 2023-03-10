@@ -1,5 +1,5 @@
 import styles from "./Board.module.scss";
-import { BoardList } from "../../data/boardList";
+import { BoardList } from "../../data/BoardList";
 import { useEffect, useState } from "react";
 
 interface BoardListType {

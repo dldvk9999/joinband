@@ -1,6 +1,7 @@
 import styles from "./Home.module.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import Image from "next/image";
 
 export default function Section1() {
     // 홈 화면 캐러셀 이미지 출력
@@ -9,7 +10,14 @@ export default function Section1() {
         for (let i = 0; i < 5; i++) {
             result.push(
                 <div key={"home-image-" + i}>
-                    <img className={styles.homeCarouselImage} src={"/home/home" + (i + 1) + ".webp"} />
+                    <Image
+                        className={styles.homeCarouselImage}
+                        src={"/home/home" + (i + 1) + ".webp"}
+                        alt={"home carousel image"}
+                        width={100}
+                        height={100}
+                        priority
+                    />
                 </div>
             );
         }
