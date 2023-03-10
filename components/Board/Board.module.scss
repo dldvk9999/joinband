@@ -1,0 +1,62 @@
+.board {
+    @include view(flex, center, center);
+    width: 100%;
+    min-height: 100vh;
+    padding: 6rem 0;
+    & > div {
+        @include border-radius(1px solid transparent, 3rem);
+        @include bcolor($white, $black);
+        padding: 3rem;
+        width: 80%;
+        & > div {
+            @include view(flex, space-between, center);
+            & > select {
+                width: fit-content;
+            }
+        }
+    }
+}
+
+.boardTable {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.boardTableHead {
+    height: 3rem;
+
+    & > tr {
+        & > th {
+            border-top: 1px solid $black;
+            border-bottom: 1px solid $black;
+        }
+        & > :nth-child(1) {
+            width: 5%;
+        }
+        & > :nth-child(2) {
+            width: 70%;
+        }
+        & > :nth-child(3) {
+            width: 10%;
+        }
+        & > :nth-child(4) {
+            width: 10%;
+        }
+        & > :nth-child(5) {
+            width: 5%;
+        }
+    }
+}
+
+.boardTableFoot {
+    justify-content: center !important;
+    padding: 1rem;
+    & > button {
+        @include bcolor(transparent, $black);
+        @include view(flex, center, center);
+        width: 2rem;
+        border: 1px solid transparent;
+        font-size: 1rem;
+    }
+}
