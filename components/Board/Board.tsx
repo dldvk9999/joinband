@@ -39,9 +39,19 @@ export default function Board() {
         return result;
     }
 
+    // 게시판의 페이지 수 파악
+    function pagingCount() {
+        const result = Math.ceil(board.length / viewCount) - calculatePageNumber();
+        return result + 1;
+    }
+
     useEffect(() => {
         setBoard(BoardList);
     }, []);
+
+    useEffect(() => {
+        pagingContent(viewStart, viewStart + viewCount);
+    }, [viewCount]);
 
     return (
         <main>
@@ -75,24 +85,31 @@ export default function Board() {
                     </table>
 
                     <div className={styles.boardTableFoot}>
-                        <button onClick={() => setViewStart((v) => v - viewCount)} disabled={~~(viewStart / 10) === 0}>
+                        <button
+                            onClick={() => setViewStart((v) => v - viewCount)}
+                            disabled={~~(viewStart / viewCount) === 0}
+                        >
                             &lt;
                         </button>
-                        {Array.from({ length: Math.min(10, board.length / 10 - calculatePageNumber() + 1) }, () =>
-                            calculatePageNumber()
-                        ).map((item, i) => {
-                            return (
-                                <button
-                                    key={"board-paging-" + i}
-                                    onClick={() => setViewStart(item * viewCount + i * viewCount - 10)}
-                                >
-                                    {~~(viewStart / 10) + 1 === item + i ? <b>{item + i}</b> : <>{item + i}</>}
-                                </button>
-                            );
-                        })}
+                        {Array.from({ length: Math.min(10, pagingCount()) }, () => calculatePageNumber()).map(
+                            (item, i) => {
+                                return (
+                                    <button
+                                        key={"board-paging-" + i}
+                                        onClick={() => setViewStart(item * viewCount + i * viewCount - viewCount)}
+                                    >
+                                        {~~(viewStart / viewCount) + 1 === item + i ? (
+                                            <b>{item + i}</b>
+                                        ) : (
+                                            <>{item + i}</>
+                                        )}
+                                    </button>
+                                );
+                            }
+                        )}
                         <button
                             onClick={() => setViewStart((v) => v + viewCount)}
-                            disabled={~~(viewStart / 10) + 1 === ~~(board.length / 10)}
+                            disabled={~~(viewStart / viewCount) + 1 === Math.ceil(board.length / viewCount)}
                         >
                             &gt;
                         </button>
