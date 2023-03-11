@@ -32,10 +32,10 @@
             border-bottom: 1px solid $black;
         }
         & > :nth-child(1) {
-            width: 5%;
+            width: 10%;
         }
         & > :nth-child(2) {
-            width: 70%;
+            width: 60%;
         }
         & > :nth-child(3) {
             width: 10%;
@@ -44,7 +44,7 @@
             width: 10%;
         }
         & > :nth-child(5) {
-            width: 5%;
+            width: 10%;
         }
     }
 }
@@ -58,5 +58,21 @@
         width: 2rem;
         border: 1px solid transparent;
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .boardTableHead > tr > th {
+        font-size: 0.8rem;
+    }
+    .boardTableBody > tr > td {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .board > div {
+        padding: 3rem 1.5rem;
+        width: 100%;
     }
 }
