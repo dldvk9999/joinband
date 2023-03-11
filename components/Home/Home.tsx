@@ -14,7 +14,7 @@ export default function Home() {
     function scrollSection(e: WheelEvent) {
         e.preventDefault();
 
-        if (!pageChange) {
+        if (!pageChange && window.location.pathname === "/") {
             pageChange = true;
             // 아래로 스크롤 했을 때
             if (e.deltaY > 0) {
@@ -44,7 +44,7 @@ export default function Home() {
         window.addEventListener("wheel", (e) => scrollSection(e), { passive: false });
 
         return () => {
-            window.removeEventListener("wheel", (e) => scrollSection(e));
+            window.removeEventListener("wheel", (e) => scrollSection(e), false);
         };
     }, []);
 
