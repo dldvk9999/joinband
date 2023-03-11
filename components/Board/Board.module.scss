@@ -49,6 +49,11 @@
     }
 }
 
+.boardTableBodyContent:hover {
+    cursor: pointer;
+    background-color: $lightgray;
+}
+
 .boardTableFoot {
     justify-content: center !important;
     padding: 1rem;

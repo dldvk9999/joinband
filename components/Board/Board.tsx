@@ -26,7 +26,11 @@ export default function Board() {
         for (let i = start; i < end; i++) {
             if (board[i]) {
                 result.push(
-                    <tr key={"board-" + i}>
+                    <tr
+                        key={"board-" + i}
+                        className={styles.boardTableBodyContent}
+                        onClick={(_) => alert(board[i].number + " click")}
+                    >
                         <td>{board[i].number}</td>
                         <td>{board[i].title}</td>
                         <td>{board[i].writer}</td>
