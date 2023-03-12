@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "./Contents.module.scss";
 import { BoardList } from "../../../data/BoardList";
+import Link from "next/link";
 
 interface BoardListType {
     number: number;
@@ -50,7 +51,9 @@ export default function Contents() {
                         <div>
                             <p>{contents.date}</p>
                             <p>
-                                <b>{contents.writer}</b>
+                                <Link href={"/user/" + contents.writer}>
+                                    <b>{contents.writer}</b>
+                                </Link>
                             </p>
                             <p>조회수 {contents.view}</p>
                         </div>
@@ -65,7 +68,7 @@ export default function Contents() {
                     </div>
                     <hr />
                     <div className={styles.contentWrite}>
-                        <textarea className={styles.contentWriteComment}></textarea>
+                        <textarea className={styles.contentWriteComment} placeholder={"댓글을 입력해주세요"}></textarea>
                         <button>댓글달기</button>
                     </div>
                 </div>
