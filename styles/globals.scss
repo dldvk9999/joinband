@@ -33,6 +33,7 @@ select {
     -moz-appearance: none;
     text-indent: 1px;
     text-overflow: "";
+    text-align: center;
 }
 
 button {
@@ -91,6 +92,9 @@ hr {
         width: 15rem;
         font-size: 0.5rem;
         padding: 0.6rem;
+    }
+    button {
+        font-size: 0.7rem;
     }
 }
 
