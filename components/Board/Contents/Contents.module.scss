@@ -47,3 +47,23 @@
     height: 5rem;
     resize: none;
 }
+
+@media (max-width: 500px) {
+    .contentHeader > div {
+        gap: 0.5rem;
+        & > p {
+            font-size: 0.7rem !important;
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .contents > div {
+        padding: 3rem 1.5rem;
+        width: 100%;
+    }
+
+    .contentContentMenu > button {
+        font-size: 0.5rem;
+    }
+}
