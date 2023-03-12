@@ -84,9 +84,13 @@ export default function Login(props: { type: "login" | "signup" }) {
                         />
                         <div className={styles.loginPasswordCheck}>
                             {pass1 === pass2 ? (
-                                <p className={styles.loginPasswordTrue}>{pass1 && pass2 ? "일치" : ""}</p>
+                                <p className={`${styles.loginPasswordTrue} ${styles.loginP}`}>
+                                    {pass1 && pass2 ? "일치" : ""}
+                                </p>
                             ) : (
-                                <p className={styles.loginPasswordFalse}>{pass2 ? "불일치" : ""}</p>
+                                <p className={`${styles.loginPasswordFalse} ${styles.loginP}`}>
+                                    {pass2 ? "불일치" : ""}
+                                </p>
                             )}
                             <input
                                 type="password"
@@ -108,7 +112,7 @@ export default function Login(props: { type: "login" | "signup" }) {
                             />
                         </div>
                         <div className={styles.loginBirth}>
-                            <p className={styles.loginBirthTitle}>생년월일</p>
+                            <p className={`${styles.loginBirthTitle} ${styles.loginP}`}>생년월일</p>
                             <div>
                                 <label htmlFor="birthYear">연도</label>
                                 <input

@@ -108,6 +108,12 @@
 }
 
 @media (max-width: 400px) {
+    .loginP {
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 400px) {
     .login {
         padding: 0;
     }
