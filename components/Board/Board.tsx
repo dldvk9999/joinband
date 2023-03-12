@@ -63,14 +63,17 @@ export default function Board() {
                 <div>
                     <div>
                         <h1>자유 게시판</h1>
-                        <select onChange={(e) => setViewCount(~~e.target.value)} value={viewCount}>
-                            <option value="10" defaultChecked>
-                                10개씩 보기
-                            </option>
-                            <option value="20">20개씩 보기</option>
-                            <option value="50">50개씩 보기</option>
-                            <option value="100">100개씩 보기</option>
-                        </select>
+                        <div>
+                            <select onChange={(e) => setViewCount(~~e.target.value)} value={viewCount}>
+                                <option value="10" defaultChecked>
+                                    10개씩 보기
+                                </option>
+                                <option value="20">20개씩 보기</option>
+                                <option value="50">50개씩 보기</option>
+                                <option value="100">100개씩 보기</option>
+                            </select>
+                            <button>작성하기</button>
+                        </div>
                     </div>
                     <table className={styles.boardTable}>
                         <thead className={styles.boardTableHead}>

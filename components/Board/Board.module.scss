@@ -10,8 +10,13 @@
         width: 80%;
         & > div {
             @include view(flex, space-between, center);
-            & > select {
-                width: fit-content;
+            & > div {
+                display: flex;
+                gap: 0.5rem;
+                & > select {
+                    @include area(fit-content, 2.5rem);
+                    padding: 0.5rem 1rem;
+                }
             }
         }
     }
