@@ -29,7 +29,7 @@ export default function Board() {
                     <tr
                         key={"board-" + i}
                         className={styles.boardTableBodyContent}
-                        onClick={(_) => alert(board[i].number + " click")}
+                        onClick={(_) => (window.location.href = "/board/" + board[i].number)}
                     >
                         <td>{board[i].number}</td>
                         <td>{board[i].title}</td>

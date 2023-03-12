@@ -1,0 +1,49 @@
+.contents {
+    @include view(flex, center, center);
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 6rem 0;
+    & > div {
+        @include border-radius(1px solid transparent, 3rem);
+        @include bcolor($white, $black);
+        padding: 3rem;
+        width: 80%;
+    }
+}
+
+.contentHeader {
+    @include view(flex, space-between, center);
+    & > div {
+        @include view(flex, center, center);
+        color: $gray;
+        gap: 1rem;
+    }
+}
+
+.contentsContent {
+    min-height: 20rem;
+}
+
+.contentContentMenu {
+    @include view(flex, flex-end, center);
+    & > button {
+        @include bcolor($lightgray, $black);
+        @include area(fit-content, fit-content);
+        padding: 0.5rem 1rem;
+    }
+}
+
+.contentWrite {
+    @include view(flex, center, center);
+    & > button {
+        height: 5rem;
+        border-radius: 0.4rem;
+    }
+}
+
+.contentWriteComment {
+    width: 100%;
+    height: 5rem;
+    resize: none;
+}
