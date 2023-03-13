@@ -1,6 +1,7 @@
 import styles from "./Board.module.scss";
 import { BoardList } from "../../data/BoardList";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 interface BoardListType {
     number: number;
@@ -72,7 +73,9 @@ export default function Board() {
                                 <option value="50">50개씩 보기</option>
                                 <option value="100">100개씩 보기</option>
                             </select>
-                            <button>작성하기</button>
+                            <Link href={"/boardwrite"}>
+                                <button>작성하기</button>
+                            </Link>
                         </div>
                     </div>
                     <table className={styles.boardTable}>
