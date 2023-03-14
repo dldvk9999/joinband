@@ -1,0 +1,5 @@
+.mypage {
+    @include view(flex, center, center);
+    @include border-radius(1px solid transparent, 3rem);
+    min-height: 100vh;
+}
