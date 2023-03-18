@@ -1,4 +1,4 @@
-.video {
+.information {
     @include area(60%, 100%);
     @include view(flex, center, center);
     @include bcolor($white, $black);
@@ -14,15 +14,26 @@
     }
 }
 
-.videoList {
+.informationList {
     @include view(flex, flex-start, center);
     @include area(100%, 35rem);
     flex-direction: column;
-    & > div {
+    & > div:first-child {
         @include view(flex, flex-end, center);
         width: 100%;
         & > button {
             margin-right: 1rem;
+        }
+    }
+    & > div {
+        @include view(grid, center, center);
+        justify-items: center;
+        grid-template-columns: 1fr 2fr;
+        width: 100%;
+        padding: 0.5rem 3rem;
+        & > p {
+            word-wrap: break-word;
+            white-space: nowrap;
         }
     }
     & > p {
@@ -31,8 +42,35 @@
     }
 }
 
+@media (max-width: 1000px) {
+    .informationList > div {
+        & > p {
+            font-size: 0.9rem;
+        }
+        & > input,
+        & > select {
+            width: 13rem;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .informationList > div {
+        padding: 0.5rem 1rem;
+        & > p {
+            font-size: 0.7rem;
+        }
+        & > input,
+        & > select {
+            width: 10rem;
+            font-size: 0.7rem;
+        }
+    }
+}
+
 @media (max-width: 500px) {
-    .videoList > div {
+    .informationList > div {
         justify-content: center;
     }
 }
