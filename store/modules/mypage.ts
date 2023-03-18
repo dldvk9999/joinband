@@ -10,7 +10,7 @@ const initialState: StateType = { value: 1 };
 
 // 슬라이스생성
 export const pageIndex = createSlice({
-    name: "counter",
+    name: "mypage",
     initialState,
     reducers: {
         change: (state: StateType, action: PayloadAction<number>) => {

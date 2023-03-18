@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterSlice from "./modules/mypage";
+import pageIndex from "./modules/mypage";
 
 const store = configureStore({
     reducer: {
-        index: counterSlice.reducer,
+        index: pageIndex.reducer,
     },
     devTools: process.env.NODE_ENV === "development",
 });
