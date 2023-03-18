@@ -5,7 +5,7 @@ import { change } from "../../../store/modules/mypage";
 
 export default function Nav() {
     const dispatch = useDispatch();
-    const handlePluseCounter = (index: number) => dispatch(change(index));
+    const handlePageIndexer = (index: number) => dispatch(change(index));
 
     return (
         <section className={styles.nav}>
@@ -23,10 +23,10 @@ export default function Nav() {
             <p>한줄 자기소개</p>
             <hr />
             <div className={styles.navRouter}>
-                <p onClick={() => handlePluseCounter(0)}>내 정보</p>
-                <p onClick={() => handlePluseCounter(1)}>내 동영상</p>
-                <p onClick={() => handlePluseCounter(2)}>비밀번호 변경</p>
-                <p onClick={() => handlePluseCounter(3)}>회원탈퇴</p>
+                <p onClick={() => handlePageIndexer(0)}>내 정보</p>
+                <p onClick={() => handlePageIndexer(1)}>내 동영상</p>
+                <p onClick={() => handlePageIndexer(2)}>비밀번호 변경</p>
+                <p onClick={() => handlePageIndexer(3)}>회원탈퇴</p>
             </div>
         </section>
     );
