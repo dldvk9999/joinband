@@ -21,6 +21,7 @@
     & > div:first-child {
         @include view(flex, flex-end, center);
         width: 100%;
+        padding: 0;
         & > button {
             margin-right: 1rem;
         }
