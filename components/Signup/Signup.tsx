@@ -4,7 +4,7 @@ import { MouseEvent, useState } from "react";
 
 const partList = ["드럼", "일렉기타", "통기타", "건반", "보컬", "Etc"];
 
-export default function signup() {
+export default function Signup() {
     const [email, setEmail] = useState("");
     const [pass1, setPass1] = useState("");
     const [pass2, setPass2] = useState("");

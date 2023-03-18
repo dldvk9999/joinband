@@ -24,7 +24,7 @@ export default function Mypage() {
 
     useEffect(() => {
         if (pageIndex !== 1) handlePageIndexer(1);
-    }, []);
+    }, [pageIndex]);
 
     return (
         <main>

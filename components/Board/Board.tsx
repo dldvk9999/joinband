@@ -56,7 +56,7 @@ export default function Board() {
 
     useEffect(() => {
         pagingContent(viewStart, viewStart + viewCount);
-    }, [viewCount]);
+    }, [viewStart, viewCount]);
 
     return (
         <main>
