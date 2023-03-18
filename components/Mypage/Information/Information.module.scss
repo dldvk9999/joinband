@@ -1,0 +1,38 @@
+.video {
+    @include area(60%, 100%);
+    @include view(flex, center, center);
+    @include bcolor($white, $black);
+    flex-direction: column;
+    min-height: 40.5rem;
+    border-left: 1px solid $sepline;
+    border-radius: 0 3rem 3rem 0;
+    & > h1 {
+        @include view(flex, flex-start, center);
+        width: 100%;
+        padding: 0 1rem;
+        font-size: 1.3rem;
+    }
+}
+
+.videoList {
+    @include view(flex, flex-start, center);
+    @include area(100%, 35rem);
+    flex-direction: column;
+    & > div {
+        @include view(flex, flex-end, center);
+        width: 100%;
+        & > button {
+            margin-right: 1rem;
+        }
+    }
+    & > p {
+        @include view(flex, center, center);
+        height: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .videoList > div {
+        justify-content: center;
+    }
+}
