@@ -1,0 +1,67 @@
+.band {
+    @include area(60%, 100%);
+    @include view(flex, center, center);
+    @include bcolor($white, $black);
+    flex-direction: column;
+    min-height: $mypage-min-height;
+    border-left: 1px solid $sepline;
+    border-radius: 0 3rem 3rem 0;
+    & > h1 {
+        @include view(flex, flex-start, center);
+        width: 100%;
+        padding: 0 1rem;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.bandList {
+    @include view(flex, flex-start, center);
+    @include area(100%, 35rem);
+    flex-direction: column;
+    & > div:first-child {
+        @include view(flex, flex-end, center);
+        width: 100%;
+        & > button {
+            margin-right: 1rem;
+        }
+    }
+    & > div {
+        @include view(grid, center, center);
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem;
+        width: 80%;
+        white-space: nowrap;
+        word-break: break-all;
+        & > input {
+            width: 15rem;
+        }
+    }
+    & > p {
+        @include view(flex, center, center);
+        height: 100%;
+    }
+}
+
+.changePasswordText {
+    padding: 0 3rem;
+    word-wrap: break-word;
+}
+
+@media (max-width: 650px) {
+    .changepasswordList > div {
+        font-size: 0.7rem;
+        & > input {
+            width: 10rem;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .changepasswordList > div {
+        justify-content: center;
+        & > input {
+            width: 8rem;
+        }
+    }
+}
