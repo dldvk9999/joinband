@@ -5,8 +5,6 @@ const partList = ["드럼", "일렉기타", "통기타", "건반", "보컬", "Et
 
 export default function Information() {
     const [email, setEmail] = useState("");
-    const [oldpass, setOldpass] = useState("");
-    const [newpass, setNewpass] = useState("");
     const [name, setName] = useState("");
     const [nickname, setNickname] = useState("");
     const [part, setPart] = useState("");
@@ -22,23 +20,25 @@ export default function Information() {
                 </div>
                 <div>
                     <p>이메일</p>
-                    <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+                    <input
+                        type="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        placeholder={"example@naver.com"}
+                    />
                 </div>
                 <div>
                     <p>이름</p>
-                    <input type="text" onChange={(e) => setName(e.target.value)} value={name} />
+                    <input type="text" onChange={(e) => setName(e.target.value)} value={name} placeholder={"홍길동"} />
                 </div>
                 <div>
                     <p>닉네임</p>
-                    <input type="text" onChange={(e) => setNickname(e.target.value)} value={nickname} />
-                </div>
-                <div>
-                    <p>현재 비밀번호</p>
-                    <input type="password" onChange={(e) => setOldpass(e.target.value)} value={oldpass} />
-                </div>
-                <div>
-                    <p>비밀번호 수정</p>
-                    <input type="password" onChange={(e) => setNewpass(e.target.value)} value={newpass} />
+                    <input
+                        type="text"
+                        onChange={(e) => setNickname(e.target.value)}
+                        value={nickname}
+                        placeholder={"홍길동의 닉네임"}
+                    />
                 </div>
                 <div>
                     <p>파트</p>
@@ -57,7 +57,12 @@ export default function Information() {
                 </div>
                 <div>
                     <p>사는 곳</p>
-                    <input type="text" onChange={(e) => setPlace(e.target.value)} value={place} />
+                    <input
+                        type="text"
+                        onChange={(e) => setPlace(e.target.value)}
+                        value={place}
+                        placeholder={"서울시 OO구"}
+                    />
                 </div>
             </div>
         </section>
