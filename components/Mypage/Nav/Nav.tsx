@@ -25,8 +25,9 @@ export default function Nav() {
             <div className={styles.navRouter}>
                 <p onClick={() => handlePageIndexer(0)}>내 정보</p>
                 <p onClick={() => handlePageIndexer(1)}>내 동영상</p>
-                <p onClick={() => handlePageIndexer(2)}>비밀번호 변경</p>
-                <p onClick={() => handlePageIndexer(3)}>회원탈퇴</p>
+                <p onClick={() => handlePageIndexer(2)}>내 밴드</p>
+                <p onClick={() => handlePageIndexer(3)}>비밀번호 변경</p>
+                <p onClick={() => handlePageIndexer(4)}>회원탈퇴</p>
             </div>
         </section>
     );

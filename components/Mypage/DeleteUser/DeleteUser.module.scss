@@ -3,7 +3,7 @@
     @include view(flex, center, center);
     @include bcolor($white, $black);
     flex-direction: column;
-    min-height: 40.5rem;
+    min-height: $mypage-min-height;
     border-left: 1px solid $sepline;
     border-radius: 0 3rem 3rem 0;
     & > h1 {
