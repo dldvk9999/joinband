@@ -22,10 +22,6 @@ export default function Mypage() {
         else return <Video />;
     }
 
-    useEffect(() => {
-        if (pageIndex !== 1) handlePageIndexer(1);
-    }, [pageIndex]);
-
     return (
         <main>
             <section className={styles.mypage}>
