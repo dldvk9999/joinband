@@ -1,0 +1,69 @@
+.memberjoin {
+    @include view(grid, flex-start, center);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    min-height: 100vh;
+    padding: 6rem 3rem;
+    margin: 0 auto;
+}
+
+.memberjoinCards {
+    @include border-radius(1px solid $white, 3rem);
+    @include bcolor($white, $black);
+    padding: 2rem;
+    overflow-y: hidden;
+    height: 100%;
+    cursor: pointer;
+    & > h2 {
+        display: block;
+        overflow-x: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+}
+
+.memberjoinImg {
+    @include area(100%, 10rem);
+}
+
+.memberjoinKeyword {
+    @include view(flex, flex-start, center);
+    flex-wrap: wrap;
+    & > p {
+        @include bcolor($lightgray, $black);
+        @include border-radius(1px solid $lightgray, 3rem);
+        padding: 0.5rem 0.7rem;
+        font-size: 0.7rem;
+        margin: 0;
+        & > ::before {
+            content: "#";
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .memberjoin {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .memberjoinCards > h2 {
+        font-size: 1rem;
+    }
+    .memberjoinKeyword > p {
+        font-size: 0.3rem;
+        padding: 0.5rem 0.5rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .memberjoin {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 6rem 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .memberjoin {
+        grid-template-columns: 1fr;
+    }
+}
