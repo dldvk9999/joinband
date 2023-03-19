@@ -43,25 +43,8 @@
     }
 }
 
-.changePasswordText {
-    padding: 0 3rem;
-    word-wrap: break-word;
-}
-
-@media (max-width: 650px) {
-    .changepasswordList > div {
-        font-size: 0.7rem;
-        & > input {
-            width: 10rem;
-        }
-    }
-}
-
 @media (max-width: 500px) {
-    .changepasswordList > div {
+    .bandList > div:first-child {
         justify-content: center;
-        & > input {
-            width: 8rem;
-        }
     }
 }
