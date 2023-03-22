@@ -1,0 +1,41 @@
+.write {
+    @include view(flex, center, center);
+    width: 100%;
+    min-height: 100vh;
+    padding: 6rem 0;
+    & > div {
+        @include border-radius(1px solid transparent, 3rem);
+        @include bcolor($white, $black);
+        padding: 3rem;
+        width: 80%;
+        & > input,
+        & > textarea {
+            width: 100%;
+        }
+        & > textarea {
+            padding: 1rem;
+            resize: none;
+            &:focus {
+                outline-width: 0px;
+            }
+        }
+    }
+}
+
+.writeTextarea {
+    height: 20rem;
+}
+
+.writeBtns {
+    @include view(flex, space-evenly, center);
+    & > button:first-child {
+        @include bcolor($lightgray, $black);
+    }
+}
+
+@media (max-width: 550px) {
+    .write > div {
+        padding: 3rem 1.5rem;
+        width: 100%;
+    }
+}

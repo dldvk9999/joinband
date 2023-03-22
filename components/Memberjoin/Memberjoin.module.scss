@@ -1,10 +1,23 @@
 .memberjoin {
+    @include view(flex, center, center);
+    flex-direction: column;
+}
+
+.memberjoinSection {
     @include view(grid, flex-start, center);
     grid-template-columns: repeat(4, 1fr);
+    align-items: stretch;
     gap: 1rem;
     min-height: 100vh;
-    padding: 8rem 3rem 0rem 3rem;
+    padding: 1rem 3rem;
     margin: 0 auto;
+}
+
+.memberjoinWrite {
+    @include view(flex, flex-end, center);
+    @include border-radius(1px solid transparent, 3rem);
+    width: 100%;
+    padding: 6rem 3rem 0;
 }
 
 .memberjoinCards {
@@ -13,7 +26,6 @@
     padding: 2rem;
     overflow-y: hidden;
     height: 100%;
-    cursor: pointer;
     & > h2 {
         display: block;
         overflow-x: hidden;
