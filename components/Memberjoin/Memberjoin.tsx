@@ -1,10 +1,33 @@
 import styles from "./Memberjoin.module.scss";
 import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 const partList = ["드럼", "일렉기타", "통기타", "건반", "보컬", "Etc"];
 const songType = ["클래식", "발라드", "락", "CCM", "블루스", "재즈", "컨트리", "디스코", "트로트", "EDM"];
 
 export default function Memberjoin() {
+    const [cards, setCards] = useState([]);
+    const [loading, setLoading] = useState("Loading...");
+    const page = useRef(1);
+    const [ref, inView] = useInView();
+
+    // 회원 모집 글 불러오기
+    const getCards = useCallback(() => {
+        try {
+            if (page.current !== 10) {
+                pushCard();
+                page.current++;
+            } else {
+                setLoading("");
+            }
+        } catch (e) {
+            console.log(e);
+            alert("getCards Error");
+        }
+    }, []);
+
+    // 랜덤한 모집 글 생성 (API 연동 시 삭제 예정)
     function random(type: "instru" | "song") {
         const randomType = type === "instru" ? partList : songType;
         let result = [];
@@ -17,12 +40,12 @@ export default function Memberjoin() {
     }
 
     // 밴드 구인 카드 출력 (한번에 10개씩)
-    function printCard() {
-        let result = [];
+    function pushCard() {
+        let result: any = [];
         for (let i = 0; i < 10; i++) {
             result.push(
                 <div className={styles.memberjoinCards} key={"memberjoin-cards-" + i}>
-                    <h2>밴드원 모집 중asdafasfassadasdasdasdas</h2>
+                    <h2>밴드원 모집 중</h2>
                     <Image
                         src={"/home/guitar.webp"}
                         alt={"recruit"}
@@ -39,12 +62,21 @@ export default function Memberjoin() {
                 </div>
             );
         }
-        return result;
+        setCards((c) => c.concat(result));
     }
+
+    useEffect(() => {
+        if (inView) {
+            getCards();
+        }
+    }, [fetch, inView]);
 
     return (
         <main>
-            <section className={styles.memberjoin}>{printCard()}</section>
+            <section className={styles.memberjoin}>{cards}</section>
+            <div ref={ref} className={styles.memberjoinLoading}>
+                {loading}
+            </div>
         </main>
     );
 }
