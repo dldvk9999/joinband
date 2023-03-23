@@ -48,6 +48,22 @@
     resize: none;
 }
 
+.contentsKeywords {
+    @include view(flex, center, flex-start);
+    flex-direction: column;
+    & > div {
+        @include view(flex, center, center);
+        margin: 1rem 0;
+        & > p {
+            @include bcolor($lightgray, $black);
+            @include border-radius(1px solid $lightgray, 3rem);
+            padding: 0.5rem 0.7rem;
+            font-size: 0.7rem;
+            margin: 0;
+        }
+    }
+}
+
 @media (max-width: 500px) {
     .contentHeader > div {
         gap: 0.5rem;
