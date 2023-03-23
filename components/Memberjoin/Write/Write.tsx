@@ -1,9 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Write.module.scss";
+
+const partList = ["드럼", "일렉기타", "통기타", "건반", "보컬", "Etc"];
+const songType = ["클래식", "발라드", "락", "CCM", "블루스", "재즈", "컨트리", "디스코", "트로트", "EDM", "Etc"];
 
 export default function Write() {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
+    const [selectPartList, setPartList] = useState<Array<string>>([]);
+    const [selectSongType, setSongType] = useState<Array<string>>([]);
+    const checkboxList = [
+        {
+            item: partList,
+            title: "partList",
+            title_kor: "구인 파트",
+        },
+        {
+            item: songType,
+            title: "songType",
+            title_kor: "밴드 장르",
+        },
+    ];
+
+    // 구인 파트와 밴드 장르 체크박스 상태를 저장해놓을 변수 관리
+    function selectType(type: "partList" | "songType", item: string) {
+        if (type === "partList") {
+            const isFind = selectPartList.indexOf(item);
+            if (isFind !== -1) {
+                setPartList(selectPartList.filter((s) => s !== item));
+            } else {
+                setPartList((s) => [...s, item]);
+            }
+        } else {
+            const isFind = selectSongType.indexOf(item);
+            if (isFind !== -1) {
+                setSongType(selectSongType.filter((s) => s !== item));
+            } else {
+                setSongType((s) => [...s, item]);
+            }
+        }
+    }
 
     // 게시글 취소
     function cancelContents() {
@@ -30,6 +66,32 @@ export default function Write() {
                         value={title}
                     />
                     <hr />
+                    {checkboxList.map((list, i) => {
+                        return (
+                            <div className={styles.writeCheckbox} key={"checkbox-" + i}>
+                                <p>
+                                    <b>{list.title_kor}</b>
+                                </p>
+                                <div>
+                                    {list.item.map((item, j) => {
+                                        return (
+                                            <div key={list.title + j}>
+                                                <input
+                                                    onClick={(e) =>
+                                                        selectType(list.title as "partList" | "songType", item)
+                                                    }
+                                                    type="checkbox"
+                                                    id={list.title + j}
+                                                    name={item}
+                                                />
+                                                <label htmlFor={list.title + j}>{item}</label>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        );
+                    })}
                     <textarea
                         cols={30}
                         rows={10}

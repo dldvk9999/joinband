@@ -1,6 +1,6 @@
 const list = [];
 const partList = ["드럼", "일렉기타", "통기타", "건반", "보컬", "Etc"];
-const songType = ["클래식", "발라드", "락", "CCM", "블루스", "재즈", "컨트리", "디스코", "트로트", "EDM"];
+const songType = ["클래식", "발라드", "락", "CCM", "블루스", "재즈", "컨트리", "디스코", "트로트", "EDM", "Etc"];
 
 // 랜덤한 모집 글 생성 (API 연동 시 삭제 예정)
 function random(type: "instru" | "song") {
