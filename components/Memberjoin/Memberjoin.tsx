@@ -31,8 +31,8 @@ export default function Memberjoin() {
         let result: any = [];
         for (let i = page.current * 10; i < page.current * 10 + 10; i++) {
             result.push(
-                <Link href={"/memberjoin/" + MemberjoinList[i].number}>
-                    <div className={styles.memberjoinCards} key={"memberjoin-cards-" + i}>
+                <Link href={"/memberjoin/" + MemberjoinList[i].number} key={"memberjoin-cards-" + i}>
+                    <div className={styles.memberjoinCards}>
                         <h2>{MemberjoinList[i].title}</h2>
                         <Image
                             src={"/home/guitar.webp"}
