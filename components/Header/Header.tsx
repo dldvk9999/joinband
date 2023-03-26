@@ -23,7 +23,15 @@ export default function Header() {
         nav.current!.classList.remove("active");
     }
 
+    function logout() {
+        localStorage.removeItem("id");
+        window.location.href = "/";
+    }
+
     useEffect(() => {
+        // 로그인 상태 체크
+        setLogin(localStorage["id"] && localStorage["id"] !== "");
+
         // Viewport width가 (StandardMobileWidth)px 이하일 경우 모바일로 간주
         setMobile(window.innerWidth < StandardMobileWidth);
         window.addEventListener("resize", () => setMobile(window.innerWidth < StandardMobileWidth));
@@ -57,8 +65,10 @@ export default function Header() {
                 <div>
                     {isLogin ? (
                         <>
-                            <Link href={"/logout"}>로그아웃</Link>
-                            <Image src={"/profile.webp"} alt={"logo"} width={40} height={40} priority></Image>
+                            <Link href={"/mypage"}>마이페이지</Link>
+                            <Link href={"/"} onClick={logout}>
+                                로그아웃
+                            </Link>
                         </>
                     ) : (
                         <>

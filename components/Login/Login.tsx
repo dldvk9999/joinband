@@ -6,6 +6,12 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [pass1, setPass1] = useState("");
 
+    // 로그인 함수
+    function login() {
+        localStorage["id"] = email;
+        return true;
+    }
+
     return (
         <main>
             <section className={`${styles.login} ${styles.loginLogin}`}>
@@ -16,7 +22,7 @@ export default function Login() {
                     height={100}
                     loading={"lazy"}
                 ></Image>
-                <form action="/">
+                <form action="/" onSubmit={login}>
                     <h1>로그인</h1>
                     <input
                         type="email"
