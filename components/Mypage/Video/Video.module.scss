@@ -1,10 +1,10 @@
 .video {
-    @include area(60%, 100%);
+    @include area(60%, 40rem);
     @include view(flex, center, center);
     @include bcolor($white, $black);
     flex-direction: column;
-    min-height: $mypage-min-height;
     border-left: 1px solid $sepline;
+    border-top: 1px solid transparent;
     border-radius: 0 3rem 3rem 0;
     & > h1 {
         @include view(flex, flex-start, center);
@@ -35,5 +35,14 @@
 @media (max-width: 500px) {
     .videoList > div {
         justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .video {
+        border-left: 1px solid transparent;
+        border-top: 1px solid $sepline;
+        border-radius: 0 0 3rem 3rem;
+        width: 15rem;
     }
 }

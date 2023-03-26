@@ -1,11 +1,12 @@
 .nav {
     @include bcolor($white, $black);
     @include view(flex, center, center);
+    height: 40rem;
     flex-direction: column;
     gap: 1rem;
     padding: 2rem 3rem;
-    min-height: $mypage-min-height;
     border-right: 1px solid $sepline;
+    border-bottom: 1px solid transparent;
     border-radius: 3rem 0 0 3rem;
 }
 
@@ -34,5 +35,14 @@
 @media (max-width: 500px) {
     .nav {
         width: 10rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav {
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid $sepline;
+        border-radius: 3rem 3rem 0 0;
+        width: 15rem;
     }
 }
