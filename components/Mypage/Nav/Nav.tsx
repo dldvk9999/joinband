@@ -2,6 +2,7 @@ import styles from "./Nav.module.scss";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { change } from "../../../store/modules/mypage";
+import { data } from "../../../data/MypageData";
 
 export default function Nav() {
     const dispatch = useDispatch();
@@ -18,9 +19,9 @@ export default function Nav() {
                 className={styles.navProfile}
             ></Image>
             <p>
-                <b>이름</b>
+                <b>{data.name}</b>
             </p>
-            <p>한줄 자기소개</p>
+            <p>{data.introduce}</p>
             <hr />
             <div className={styles.navRouter}>
                 <p onClick={() => handlePageIndexer(0)}>내 정보</p>

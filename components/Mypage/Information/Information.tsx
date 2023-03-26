@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Information.module.scss";
+import { data } from "../../../data/MypageData";
 
 const partList = ["드럼", "일렉기타", "통기타", "건반", "보컬", "Etc"];
 
@@ -9,6 +10,14 @@ export default function Information() {
     const [nickname, setNickname] = useState("");
     const [part, setPart] = useState("");
     const [place, setPlace] = useState("");
+
+    useEffect(() => {
+        setEmail(data.email);
+        setName(data.name);
+        setNickname(data.nickname);
+        setPart(partList.includes(data.part) ? data.part : "Etc");
+        setPlace(data.live);
+    }, []);
 
     return (
         <section className={styles.information}>
