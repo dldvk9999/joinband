@@ -3,10 +3,20 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { change } from "../../../store/modules/mypage";
 import { data } from "../../../data/MypageData";
+import { useEffect, useState } from "react";
 
 export default function Nav() {
     const dispatch = useDispatch();
     const handlePageIndexer = (index: number) => dispatch(change(index));
+    const [useData, setUserData] = useState<any>({});
+
+    useEffect(() => {
+        if (!localStorage["id"] || localStorage["id"] === "") {
+            alert("로그인을 먼저 해주세요.");
+            window.location.href = "/login";
+        }
+        setUserData(data);
+    }, []);
 
     return (
         <section className={styles.nav}>
@@ -19,9 +29,9 @@ export default function Nav() {
                 className={styles.navProfile}
             ></Image>
             <p>
-                <b>{data.name}</b>
+                <b>{useData.name}</b>
             </p>
-            <p>{data.introduce}</p>
+            <p>{useData.introduce}</p>
             <hr />
             <div className={styles.navRouter}>
                 <p onClick={() => handlePageIndexer(0)}>내 정보</p>
