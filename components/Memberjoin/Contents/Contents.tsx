@@ -72,11 +72,11 @@ export default function Contents() {
                     </div>
                     <div className={styles.contentsKeywords}>
                         <div>
-                            <span>구인 파트 : </span>
+                            <span>구인 파트</span>
                             {contents.instrument.map((item) => item)}
                         </div>
                         <div>
-                            <span>음악 장르 : </span>
+                            <span>음악 장르</span>
                             {contents.songType.map((item) => item)}
                         </div>
                     </div>
