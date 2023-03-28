@@ -10,6 +10,13 @@ interface videoLinkType {
 
 export default function Video(props: { id: number }) {
     const [linkList, setLinkList] = useState<Array<videoLinkType>>([]);
+    const [isView, setView] = useState(Array.from({ length: linkList.length }, () => false));
+
+    function videoView(index: number) {
+        let tmp = [...isView];
+        tmp[index] = !tmp[index];
+        setView(tmp);
+    }
 
     // 비디오 링크 수정
     function editLink(id: number, index: number) {
@@ -23,6 +30,7 @@ export default function Video(props: { id: number }) {
     function delLink(id: number) {
         if (confirm("삭제하시겠습니까?")) {
             setLinkList((links) => links.filter((item) => item.id !== id));
+            setView((views) => views.filter((_, i) => i !== id));
         }
     }
 
@@ -36,6 +44,7 @@ export default function Video(props: { id: number }) {
             },
             ...links,
         ]);
+        setView([...isView, false]);
     }
 
     useEffect(() => {
@@ -55,21 +64,27 @@ export default function Video(props: { id: number }) {
                         {linkList.map((item, i) => {
                             return (
                                 <div className={styles.videoYoutube} key={"mypage-video-" + i}>
-                                    <YouTube
-                                        videoId={item.link.split("=")[1]}
-                                        opts={{
-                                            width: "100%",
-                                            height: "100%",
-                                            playerVars: {
-                                                autoplay: 0,
-                                                rel: 0,
-                                                modestbranding: 1,
-                                            },
-                                        }}
-                                    />
+                                    {isView[i] ? (
+                                        <YouTube
+                                            videoId={item.link.split("=")[1]}
+                                            opts={{
+                                                width: "100%",
+                                                height: "360px",
+                                                playerVars: {
+                                                    autoplay: 0,
+                                                    rel: 0,
+                                                    modestbranding: 1,
+                                                },
+                                            }}
+                                        />
+                                    ) : (
+                                        <div className={`${styles.videoYoutubeBtn} ${styles.videoYoutubeHide}`}>
+                                            <button onClick={() => videoView(i)}>보기</button>
+                                        </div>
+                                    )}
                                     <div className={styles.videoYoutubeBtn}>
-                                        <button onClick={(_) => delLink(item.id)}>삭제</button>
-                                        <button onClick={(_) => editLink(item.id, i)}>수정</button>
+                                        <button onClick={() => delLink(item.id)}>삭제</button>
+                                        <button onClick={() => editLink(item.id, i)}>수정</button>
                                     </div>
                                 </div>
                             );

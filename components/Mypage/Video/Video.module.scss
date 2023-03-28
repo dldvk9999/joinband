@@ -42,7 +42,7 @@
 }
 
 .videoYoutube {
-    @include area(100%, 85%);
+    width: 100%;
     max-width: 40rem;
     & > div {
         width: 100%;
@@ -59,6 +59,10 @@
         @include bcolor(transparent, $black);
         width: 100%;
     }
+}
+
+.videoYoutubeHide {
+    height: 3rem !important;
 }
 
 @media (max-width: 500px) {
