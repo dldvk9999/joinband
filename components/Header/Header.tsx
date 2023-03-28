@@ -11,6 +11,7 @@ const StandardMobileWidth = 730;
 export default function Header() {
     const [isLogin, setLogin] = useState(false);
     const [isMobile, setMobile] = useState(false);
+    const [myId, setMyId] = useState(0);
     const nav = useRef<HTMLElement>(null);
 
     // nav open
@@ -25,6 +26,7 @@ export default function Header() {
 
     function logout() {
         localStorage.removeItem("id");
+        localStorage.removeItem("userid");
         window.location.href = "/";
     }
 
@@ -40,6 +42,12 @@ export default function Header() {
             window.removeEventListener("resize", () => setMobile(window.innerWidth < StandardMobileWidth));
         };
     }, []);
+
+    useEffect(() => {
+        if (isLogin) {
+            setMyId(localStorage["userid"] ? localStorage["userid"] : 0);
+        }
+    }, [isLogin]);
 
     return (
         <header className={styles.header}>
@@ -65,7 +73,7 @@ export default function Header() {
                 <div>
                     {isLogin ? (
                         <>
-                            <Link href={"/mypage"}>마이페이지</Link>
+                            <Link href={"/mypage/" + myId}>마이페이지</Link>
                             <Link href={"/"} onClick={logout}>
                                 로그아웃
                             </Link>

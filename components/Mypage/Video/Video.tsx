@@ -8,7 +8,7 @@ interface videoLinkType {
     link: string;
 }
 
-export default function Video() {
+export default function Video(props: { id: number }) {
     const [linkList, setLinkList] = useState<Array<videoLinkType>>([]);
 
     // 비디오 링크 수정

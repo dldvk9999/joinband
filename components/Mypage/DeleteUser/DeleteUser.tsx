@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./DeleteUser.module.scss";
 
-export default function DeleteUser() {
+export default function DeleteUser(props: { id: number }) {
     const [oldPass, setOldPass] = useState("");
 
     // 회원탈퇴 로직

@@ -1,6 +1,6 @@
 import styles from "./Band.module.scss";
 
-export default function Band() {
+export default function Band(props: { id: number }) {
     return (
         <section className={styles.band}>
             <h1>내 밴드</h1>

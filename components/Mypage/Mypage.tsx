@@ -7,24 +7,38 @@ import ChangePassword from "./ChangePassword/ChangePassword";
 import DeleteUser from "./DeleteUser/DeleteUser";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/configureStore";
+import { useRouter } from "next/router";
+import { data } from "../../data/MypageData";
+import { useEffect, useState } from "react";
 
 export default function Mypage() {
+    const [mypage, setMypage] = useState<JSX.Element[]>([]);
     const pageIndex = useSelector((state: RootState) => state.index.value);
+    const router = useRouter();
+    const { params } = router.query;
 
-    function pageView() {
-        if (pageIndex === 0) return <Information />;
-        else if (pageIndex === 2) return <Band />;
-        else if (pageIndex === 3) return <ChangePassword />;
-        else if (pageIndex === 4) return <DeleteUser />;
-        else return <Video />;
+    function pageView(id: number) {
+        let result = [<Nav />];
+        if (pageIndex === 0) result.push(<Information id={id} />);
+        else if (pageIndex === 2) result.push(<Band id={id} />);
+        else if (pageIndex === 3) result.push(<ChangePassword id={id} />);
+        else if (pageIndex === 4) result.push(<DeleteUser id={id} />);
+        else result.push(<Video id={id} />);
+        setMypage(result);
     }
+
+    useEffect(() => {
+        if (params && data.id !== ~~params!) {
+            alert("사용자가 존재하지 않습니다.");
+            window.history.back();
+        } else {
+            pageView(~~params!);
+        }
+    }, [params]);
 
     return (
         <main>
-            <section className={styles.mypage}>
-                <Nav />
-                {pageView()}
-            </section>
+            <section className={styles.mypage}>{mypage}</section>
         </main>
     );
 }

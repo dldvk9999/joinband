@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./ChangePassword.module.scss";
 
-export default function ChangePassword() {
+export default function ChangePassword(props: { id: number }) {
     const [oldPass, setOldPass] = useState("");
     const [newPass, setNewPass] = useState("");
     const [newPass2, setNewPass2] = useState("");

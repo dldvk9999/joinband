@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Login.module.scss";
 import Image from "next/image";
+import { data } from "../../data/MypageData";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -9,6 +10,7 @@ export default function Login() {
     // 로그인 함수
     function login() {
         localStorage["id"] = email;
+        localStorage["userid"] = data.email === email ? data.id : 0;
         return true;
     }
 

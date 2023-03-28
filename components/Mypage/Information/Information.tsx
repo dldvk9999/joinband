@@ -4,7 +4,7 @@ import { data } from "../../../data/MypageData";
 
 const partList = ["드럼", "일렉기타", "통기타", "건반", "보컬", "Etc"];
 
-export default function Information() {
+export default function Information(props: { id: number }) {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [nickname, setNickname] = useState("");

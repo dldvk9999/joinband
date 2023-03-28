@@ -14,8 +14,9 @@ export default function Nav() {
         if (!localStorage["id"] || localStorage["id"] === "") {
             alert("로그인을 먼저 해주세요.");
             window.location.href = "/login";
+        } else {
+            setUserData(data);
         }
-        setUserData(data);
     }, []);
 
     return (
@@ -27,7 +28,7 @@ export default function Nav() {
                 height={200}
                 priority
                 className={styles.navProfile}
-            ></Image>
+            />
             <p>
                 <b>{useData.name}</b>
             </p>
