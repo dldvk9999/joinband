@@ -36,6 +36,10 @@ export default function Mypage() {
         }
     }, [params]);
 
+    useEffect(() => {
+        pageView(~~params!);
+    }, [pageIndex]);
+
     return (
         <main>
             <section className={styles.mypage}>{mypage}</section>
