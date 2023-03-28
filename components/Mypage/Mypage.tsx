@@ -18,12 +18,13 @@ export default function Mypage() {
     const { params } = router.query;
 
     function pageView(id: number) {
-        let result = [<Nav />];
-        if (pageIndex === 0) result.push(<Information id={id} />);
-        else if (pageIndex === 2) result.push(<Band id={id} />);
-        else if (pageIndex === 3) result.push(<ChangePassword id={id} />);
-        else if (pageIndex === 4) result.push(<DeleteUser id={id} />);
-        else result.push(<Video id={id} />);
+        let result = [<Nav key={"mypage-nav-" + id} />];
+        const key = "mypage-contents-" + id;
+        if (pageIndex === 0) result.push(<Information key={key} id={id} />);
+        else if (pageIndex === 2) result.push(<Band key={key} id={id} />);
+        else if (pageIndex === 3) result.push(<ChangePassword key={key} id={id} />);
+        else if (pageIndex === 4) result.push(<DeleteUser key={key} id={id} />);
+        else result.push(<Video key={key} id={id} />);
         setMypage(result);
     }
 
