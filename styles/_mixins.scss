@@ -45,3 +45,25 @@
         height: 100%;
     }
 }
+
+@mixin animation($str) {
+    animation: #{$str};
+}
+
+@mixin keyframe($animation_name) {
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@include keyframe(button-pop) {
+    0% {
+        scale: 1.05;
+    }
+    50% {
+        scale: 0.95;
+    }
+    100% {
+        scale: 1;
+    }
+}

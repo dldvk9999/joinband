@@ -4,22 +4,71 @@
 
 .bandList {
     @include mypage-contents-list();
+    gap: 1rem;
     & > div:first-child {
         @include view(flex, flex-end, center);
         width: 100%;
         & > button {
-            margin-right: 1rem;
+            margin: 1rem;
         }
     }
+}
+
+.bandLists {
+    @include view(flex, center, center);
+    @include border-radius(1px solid $sepline, 3rem);
+    width: 90%;
+    gap: 1rem;
+    padding: 1rem 3rem;
+    box-shadow: 10px 10px 20px 0px $lightgray;
+    cursor: pointer;
+    & > h2 {
+        width: 100%;
+    }
     & > div {
-        @include view(grid, center, center);
-        grid-template-columns: 1fr 2fr;
-        gap: 1rem;
-        width: 80%;
-        white-space: nowrap;
-        word-break: break-all;
-        & > input {
-            width: 15rem;
+        @include view(flex, center, center);
+        flex-wrap: wrap;
+        width: 100%;
+    }
+}
+
+.bandLists:hover {
+    @include animation("button-pop ease .5s");
+}
+
+.bandListsInfo {
+    @include view(flex, center, center);
+    @include border-radius(1px solid $sepline, 2rem);
+    font-size: 0.8rem;
+    padding: 1rem;
+    flex-direction: column;
+    word-break: keep-all;
+    white-space: nowrap;
+    & > p {
+        margin: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .bandLists {
+        flex-direction: column;
+        & > h2 {
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .bandLists {
+        padding: 1rem 1rem;
+        & > h2 {
+            font-size: 1rem;
+        }
+    }
+    .bandListsInfo {
+        padding: 0.75rem;
+        & > p {
+            font-size: 0.6rem;
         }
     }
 }

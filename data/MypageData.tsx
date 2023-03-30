@@ -42,28 +42,54 @@ export const data = {
             link: "https://www.youtube.com/watch?v=Iff1r3pl3yg",
         },
     ],
-    group: {
-        id: 1,
-        name: "관리자의 그룹",
-        user: [
-            {
-                id: 1,
-                name: "Admin",
-                email: "dldvk9999@naver.com",
-                part: "일렉기타",
-            },
-            {
-                id: 2,
-                name: "Admin2",
-                email: "qweqwe@naver.com",
-                part: "통기타",
-            },
-            {
-                id: 3,
-                name: "Admin3",
-                email: "qweqweqwe@naver.com",
-                part: "드럼",
-            },
-        ],
-    },
+    group: [
+        {
+            id: 1,
+            name: "관리자의 그룹",
+            user: [
+                {
+                    id: 1,
+                    name: "Admin",
+                    email: "dldvk9999@naver.com",
+                    part: "일렉기타",
+                },
+                {
+                    id: 2,
+                    name: "Admin2",
+                    email: "qweqwe@naver.com",
+                    part: "통기타",
+                },
+                {
+                    id: 3,
+                    name: "Admin3",
+                    email: "qweqweqwe@naver.com",
+                    part: "드럼",
+                },
+            ],
+        },
+        {
+            id: 2,
+            name: "관리자의 그룹2",
+            user: [
+                {
+                    id: 1,
+                    name: "Admin",
+                    email: "dldvk9999@naver.com",
+                    part: "일렉기타",
+                },
+                {
+                    id: 4,
+                    name: "Admin4",
+                    email: "qweqwe11@naver.com",
+                    part: "베이스",
+                },
+                {
+                    id: 5,
+                    name: "Admin5",
+                    email: "qweqweqwe11@naver.com",
+                    part: "보컬",
+                },
+            ],
+        },
+    ],
 };
