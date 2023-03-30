@@ -1,24 +1,9 @@
 .information {
-    @include area(60%, 40rem);
-    @include view(flex, center, center);
-    @include bcolor($white, $black);
-    flex-direction: column;
-    border-left: 1px solid $sepline;
-    border-top: 1px solid transparent;
-    border-radius: 0 3rem 3rem 0;
-    & > h1 {
-        @include view(flex, flex-start, center);
-        width: 100%;
-        padding: 0 1rem;
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-    }
+    @include mypage-contents();
 }
 
 .informationList {
-    @include view(flex, flex-start, center);
-    @include area(100%, 35rem);
-    flex-direction: column;
+    @include mypage-contents-list();
     & > div:first-child {
         @include view(flex, flex-end, center);
         width: 100%;
@@ -37,10 +22,6 @@
             word-wrap: break-word;
             white-space: nowrap;
         }
-    }
-    & > p {
-        @include view(flex, center, center);
-        height: 100%;
     }
 }
 
