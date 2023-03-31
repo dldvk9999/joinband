@@ -1,0 +1,41 @@
+.deleteuser {
+    @include mypage-contents();
+}
+
+.deleteuserList {
+    @include mypage-contents-list();
+    & > div {
+        @include view(flex, flex-end, center);
+        width: 100%;
+        & > button {
+            margin-right: 1rem;
+        }
+    }
+    & > p {
+        height: fit-content;
+    }
+}
+
+@media (max-width: 700px) {
+    .deleteuserList > p {
+        font-size: 0.8rem;
+    }
+    .deleteuserList > input {
+        width: 10rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .deleteuserList > div {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .deleteuser {
+        border-left: 1px solid transparent;
+        border-top: 1px solid $sepline;
+        border-radius: 0 0 3rem 3rem;
+        width: 15rem;
+    }
+}

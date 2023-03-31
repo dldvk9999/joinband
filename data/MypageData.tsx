@@ -46,6 +46,21 @@ export const data = {
         {
             id: 1,
             name: "관리자의 그룹",
+            introduce: "관리자의 최초 그룹입니다.",
+            video: [
+                {
+                    id: 10,
+                    link: "https://www.youtube.com/watch?v=DN72_RXD9r4",
+                },
+                {
+                    id: 11,
+                    link: "https://www.youtube.com/watch?v=sDF5-W6Q8dE",
+                },
+                {
+                    id: 12,
+                    link: "https://www.youtube.com/watch?v=Iff1r3pl3yg",
+                },
+            ],
             user: [
                 {
                     id: 1,
@@ -70,6 +85,21 @@ export const data = {
         {
             id: 2,
             name: "관리자의 그룹2",
+            introduce: "관리자의 두번째 그룹입니다.",
+            video: [
+                {
+                    id: 13,
+                    link: "https://www.youtube.com/watch?v=9hbsPQff2_U",
+                },
+                {
+                    id: 14,
+                    link: "https://www.youtube.com/watch?v=DLi7YQ-khe8",
+                },
+                {
+                    id: 15,
+                    link: "https://www.youtube.com/watch?v=umAj7mk1wxQ",
+                },
+            ],
             user: [
                 {
                     id: 1,

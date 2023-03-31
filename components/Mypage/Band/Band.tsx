@@ -1,11 +1,11 @@
 import styles from "./Band.module.scss";
 import { data } from "../../../data/MypageData";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 interface groupUserType {
     id: number;
     name: string;
-    email: string;
     part: string;
 }
 
@@ -41,7 +41,11 @@ export default function Band(props: { id: number }) {
                 {myGroup ? (
                     myGroup.map((mg, i) => {
                         return (
-                            <div className={styles.bandLists} key={"mypage-bandLists-" + i}>
+                            <Link
+                                className={styles.bandLists}
+                                key={"mypage-bandLists-" + i}
+                                href={"/grouppage/" + (i + 1)}
+                            >
                                 <h2>{mg.name}</h2>
                                 <div>
                                     {mg.user.map((item, j) => {
@@ -53,7 +57,7 @@ export default function Band(props: { id: number }) {
                                         );
                                     })}
                                 </div>
-                            </div>
+                            </Link>
                         );
                     })
                 ) : (

@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import pageIndex from "./modules/mypage";
+import pageIndexGroup from "./modules/grouppage";
 
 const store = configureStore({
     reducer: {
         index: pageIndex.reducer,
+        groupIndex: pageIndexGroup.reducer,
     },
     devTools: process.env.NODE_ENV === "development",
 });

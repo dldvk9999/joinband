@@ -1,0 +1,72 @@
+.information {
+    @include mypage-contents();
+}
+
+.informationList {
+    @include mypage-contents-list();
+    & > div:first-child {
+        @include view(flex, flex-end, center);
+        width: 100%;
+        padding: 0;
+        & > button {
+            margin-right: 1rem;
+        }
+    }
+}
+
+.informationListUser {
+    @include view(grid, center, center);
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 80%;
+}
+
+.informationListUserFirst {
+    border-bottom: 1px solid $lightgray;
+}
+
+@media (max-width: 1000px) {
+    .informationList > div {
+        & > p {
+            font-size: 0.9rem;
+        }
+        & > input,
+        & > select {
+            width: 13rem;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .informationList > div {
+        padding: 0.5rem 1rem;
+        & > p {
+            font-size: 0.7rem;
+        }
+        & > input,
+        & > select {
+            width: 10rem;
+            font-size: 0.7rem;
+        }
+    }
+
+    .informationListUser {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .informationList > div {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .information {
+        border-left: 1px solid transparent;
+        border-top: 1px solid $sepline;
+        border-radius: 0 0 3rem 3rem;
+        width: 15rem;
+    }
+}

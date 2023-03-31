@@ -1,0 +1,12 @@
+.grouppage {
+    @include view(flex, center, center);
+    @include border-radius(1px solid transparent, 3rem);
+    min-height: 100vh;
+    padding-top: 4rem;
+}
+
+@media (max-width: 400px) {
+    .grouppage {
+        flex-direction: column;
+    }
+}

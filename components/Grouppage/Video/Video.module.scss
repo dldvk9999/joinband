@@ -1,0 +1,65 @@
+.video {
+    @include mypage-contents();
+}
+
+.videoList {
+    @include mypage-contents-list();
+    & > div {
+        @include view(flex, flex-end, center);
+        width: 100%;
+        & > button {
+            margin-right: 1rem;
+        }
+    }
+}
+
+.videoListLink {
+    justify-content: center !important;
+    flex-wrap: wrap;
+    padding: 0 2rem 2rem 2rem;
+    gap: 1rem;
+    overflow-y: overlay;
+    overflow-x: hidden;
+}
+
+.videoYoutube {
+    width: 100%;
+    max-width: 40rem;
+    & > div {
+        width: 100%;
+    }
+    & > div:first-child {
+        height: 90%;
+    }
+}
+
+.videoYoutubeBtn {
+    @include view(flex, center, center);
+    width: 100%;
+    & > button {
+        @include bcolor(transparent, $black);
+        width: 100%;
+    }
+}
+
+.videoYoutubeHide {
+    height: 3rem !important;
+}
+
+@media (max-width: 500px) {
+    .videoList > div {
+        justify-content: center;
+        & > button {
+            margin-right: 0;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .video {
+        border-left: 1px solid transparent;
+        border-top: 1px solid $sepline;
+        border-radius: 0 0 3rem 3rem;
+        width: 15rem;
+    }
+}
