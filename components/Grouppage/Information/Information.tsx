@@ -12,6 +12,12 @@ interface usersType {
 export default function Information(props: { id: number }) {
     const [users, setUsers] = useState<Array<usersType>>([]);
 
+    // 그룹 초대 링크 보내기
+    function invite() {
+        const email = prompt("초대링크를 보낼 이메일을 입력해주세요.", "example@naver.com");
+        alert(email + " 전송 완료!");
+    }
+
     useEffect(() => {
         const groupData = data.group.filter((item) => item.id === props.id);
         if (groupData.length) {
@@ -25,7 +31,7 @@ export default function Information(props: { id: number }) {
             <hr />
             <div className={styles.informationList}>
                 <div>
-                    <button onClick={() => alert("수정 버튼 클릭")}>수정</button>
+                    <button onClick={() => invite()}>초대</button>
                 </div>
                 {users.map((item, i) => {
                     return (
