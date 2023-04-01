@@ -5,11 +5,15 @@
 .informationList {
     @include mypage-contents-list();
     & > div:first-child {
-        @include view(flex, flex-end, center);
+        @include view(flex, space-between, center);
         width: 100%;
         padding: 0;
         & > button {
             margin-right: 1rem;
+        }
+        & > p {
+            margin-left: 1rem;
+            font-size: 0.75rem;
         }
     }
 }
@@ -19,10 +23,16 @@
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
     width: 80%;
+    cursor: pointer;
+    &:hover {
+        background-color: $lightgray;
+    }
 }
 
 .informationListUserFirst {
     border-bottom: 1px solid $lightgray;
+    cursor: auto !important;
+    background-color: transparent !important;
 }
 
 @media (max-width: 1000px) {
