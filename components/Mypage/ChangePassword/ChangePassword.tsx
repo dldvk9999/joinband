@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ChangePassword.module.scss";
+import { data } from "../../../data/MypageData";
 
 export default function ChangePassword(props: { id: number }) {
     const [oldPass, setOldPass] = useState("");
     const [newPass, setNewPass] = useState("");
     const [newPass2, setNewPass2] = useState("");
+    const [isDisabled, setDisabled] = useState(true);
 
     // 비밀번호 변경 로직
     function changePassword() {
@@ -12,6 +14,8 @@ export default function ChangePassword(props: { id: number }) {
 
         if (!oldPass || !newPass || !newPass2) {
             alert("기존 및 신규 비밀번호를 입력해주세요.");
+        } else if (oldPass !== data.password) {
+            alert("현재 비밀번호가 맞지 않습니다.");
         } else if (newPass !== newPass2) {
             alert("비밀번호가 일치하지 않습니다!");
         } else if (oldPass === newPass) {
@@ -27,13 +31,30 @@ export default function ChangePassword(props: { id: number }) {
         }
     }
 
+    useEffect(() => {
+        if (data.id !== props.id) {
+            alert("등록되지 않은 id 입니다.");
+            window.history.back();
+        }
+    }, []);
+
+    useEffect(() => {
+        if (oldPass && newPass && newPass2) {
+            setDisabled(false);
+        } else {
+            setDisabled(true);
+        }
+    }, [oldPass, newPass, newPass2]);
+
     return (
         <section className={styles.changepassword}>
             <h1>비밀번호 변경</h1>
             <hr />
             <div className={styles.changepasswordList}>
                 <div>
-                    <button onClick={changePassword}>수정</button>
+                    <button onClick={changePassword} disabled={isDisabled}>
+                        수정
+                    </button>
                 </div>
                 <div>
                     <p>현재 비밀번호</p>

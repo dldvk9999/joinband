@@ -10,14 +10,45 @@ export default function Information(props: { id: number }) {
     const [nickname, setNickname] = useState("");
     const [part, setPart] = useState("");
     const [place, setPlace] = useState("");
+    const [password, setPassword] = useState("");
+    const [isDisabled, setDisabled] = useState(true);
+
+    function saveInfo() {
+        if (password === data.password) {
+            data.email = email;
+            data.name = name;
+            data.nickname = nickname;
+            data.part = part;
+            data.live = place;
+            alert("저장 완료!");
+        } else {
+            alert("비밀번호가 일치하지 않습니다.");
+        }
+    }
 
     useEffect(() => {
-        setEmail(data.email);
-        setName(data.name);
-        setNickname(data.nickname);
-        setPart(partList.includes(data.part) ? data.part : "Etc");
-        setPlace(data.live);
+        if (data.id === props.id) {
+            setEmail(data.email);
+            setName(data.name);
+            setNickname(data.nickname);
+            setPart(partList.includes(data.part) ? data.part : "Etc");
+            setPlace(data.live);
+        } else {
+            alert("등록되지 않은 id 입니다.");
+            window.history.back();
+        }
     }, []);
+
+    useEffect(() => {
+        if (
+            [email, name, nickname, part, place].toString() !==
+            [data.email, data.name, data.nickname, data.part, data.live].toString()
+        ) {
+            setDisabled(false);
+        } else {
+            setDisabled(true);
+        }
+    }, [email, name, nickname, part, place]);
 
     return (
         <section className={styles.information}>
@@ -25,7 +56,9 @@ export default function Information(props: { id: number }) {
             <hr />
             <div className={styles.informationList}>
                 <div>
-                    <button onClick={() => alert("수정 버튼 클릭")}>수정</button>
+                    <button onClick={saveInfo} disabled={isDisabled}>
+                        저장
+                    </button>
                 </div>
                 <div>
                     <p>이메일</p>
@@ -72,6 +105,10 @@ export default function Information(props: { id: number }) {
                         value={place}
                         placeholder={"서울시 OO구"}
                     />
+                </div>
+                <div>
+                    <p>현재 비밀번호</p>
+                    <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} />
                 </div>
             </div>
         </section>
