@@ -51,7 +51,7 @@ export default function Contents() {
                         <div>
                             <p>{contents.date}</p>
                             <p>
-                                <Link href={"/user/" + contents.writer}>
+                                <Link href={"/mypage/" + contents.number}>
                                     <b>{contents.writer}</b>
                                 </Link>
                             </p>
