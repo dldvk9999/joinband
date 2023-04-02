@@ -1,0 +1,57 @@
+.write {
+    @include view(flex, center, center);
+    width: 100%;
+    min-height: 100vh;
+    padding: 6rem 0;
+    & > div {
+        @include border-radius(1px solid transparent, 3rem);
+        @include bcolor($white, $black);
+        padding: 3rem;
+        width: 80%;
+        & > input {
+            width: 100%;
+        }
+    }
+}
+
+.writeLine {
+    @include view(grid, flex-start, center);
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid $lightgray;
+    & > div {
+        @include view(flex, center, center);
+        flex-direction: column;
+    }
+    & > input {
+        height: auto;
+    }
+}
+
+.writeBtns {
+    @include view(flex, space-evenly, center);
+    margin-top: 2rem;
+    & > button:first-child {
+        @include bcolor($lightgray, $black);
+    }
+}
+
+@media (max-width: 700px) {
+    .write > div {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .write > div {
+        padding: 3rem 1.5rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 300px) {
+    .write > div > div > input {
+        width: 13rem;
+    }
+}

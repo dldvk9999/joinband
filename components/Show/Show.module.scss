@@ -1,0 +1,88 @@
+.show {
+    @include view(flex, center, center);
+    width: 100%;
+    min-height: 100vh;
+    padding: 6rem 0;
+    & > div {
+        @include border-radius(1px solid transparent, 3rem);
+        @include bcolor($white, $black);
+        padding: 3rem;
+        width: 80%;
+        & > div {
+            @include view(flex, space-between, center);
+            & > div {
+                display: flex;
+                gap: 0.5rem;
+                & > select {
+                    @include area(fit-content, 2.5rem);
+                    padding: 0.5rem 1rem;
+                }
+            }
+        }
+    }
+}
+
+.showTable {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.showTableHead {
+    height: 3rem;
+
+    & > tr {
+        & > th {
+            border-top: 1px solid $black;
+            border-bottom: 1px solid $black;
+        }
+        & > :nth-child(1) {
+            width: 10%;
+        }
+        & > :nth-child(2) {
+            width: 60%;
+        }
+        & > :nth-child(3) {
+            width: 10%;
+        }
+        & > :nth-child(4) {
+            width: 10%;
+        }
+        & > :nth-child(5) {
+            width: 10%;
+        }
+    }
+}
+
+.showTableBodyContent:hover {
+    cursor: pointer;
+    background-color: $lightgray;
+}
+
+.showTableFoot {
+    justify-content: center !important;
+    padding: 1rem;
+    & > button {
+        @include bcolor(transparent, $black);
+        @include view(flex, center, center);
+        width: 2rem;
+        border: 1px solid transparent;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .showTableHead > tr > th {
+        font-size: 0.8rem;
+    }
+    .showTableBody > tr > td {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .show > div {
+        padding: 3rem 1.5rem;
+        width: 100%;
+    }
+}
