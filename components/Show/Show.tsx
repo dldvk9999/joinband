@@ -29,7 +29,7 @@ export default function Show() {
                 result.push(
                     <tr
                         key={"show-" + i}
-                        className={styles.boardTableBodyContent}
+                        className={styles.showTableBodyContent}
                         onClick={(_) => (window.location.href = "/invite/" + show[i].number)}
                     >
                         <td>{show[i].number}</td>
