@@ -1,0 +1,61 @@
+.filter {
+    @include bcolor($white, $black);
+    @include border-radius(1px solid transparent, 3rem);
+    padding: 2rem;
+    & > p {
+        font-weight: 700;
+    }
+    & > div {
+        @include border-radius(1px solid transparent, 2rem);
+        background-color: $lightgray;
+        padding: 1rem;
+    }
+}
+
+.filterListTitle,
+.filterListSub {
+    width: 20rem;
+    & > input,
+    & > div > input {
+        @include area(1.2rem, 1rem);
+        outline: none;
+    }
+    & > div {
+        @include view(flex, center, center);
+    }
+}
+
+.filterListTitle {
+    @include view(flex, space-between, center);
+    height: 2rem;
+}
+
+.filterListSub {
+    @include view(flex, flex-start, center);
+    padding-left: 1rem;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+    opacity: 1;
+    height: 1.5rem;
+}
+
+.filterDownArrow {
+    background-color: transparent;
+    border: 0;
+    width: fit-content;
+}
+
+.filterTab {
+    transition: transform 0.3s ease-in-out;
+}
+.filterTabOpen {
+    transform: rotate(0deg);
+}
+.filterTabClose {
+    transform: rotate(180deg);
+}
+
+.filterHidden {
+    opacity: 0;
+    height: 0;
+    z-index: -1;
+}

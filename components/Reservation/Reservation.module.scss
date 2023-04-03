@@ -1,0 +1,6 @@
+.reservation {
+    @include view(flex, center, center);
+    width: 100%;
+    min-height: 100vh;
+    padding: 6rem 0;
+}
