@@ -1,0 +1,58 @@
+.result {
+    @include area(100%, 100%);
+    @include view(flex, center, flex-start);
+    @include border-radius(1px solid transparent, 3rem);
+    @include bcolor($white, $black);
+    flex-direction: column;
+    margin-left: 2rem;
+    padding: 2rem;
+}
+
+.resultTable {
+    width: 100%;
+    text-align: center;
+    border-spacing: 0;
+    margin-bottom: 3rem;
+}
+
+.resultTableHead,
+.resultTableBody {
+    @include view(grid, center, center);
+    grid-template-columns: 1fr 10fr 2fr;
+}
+
+.resultTableHead {
+    border-bottom: 2px double $black;
+    font-size: 1.2rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.resultTableBody:hover {
+    background-color: $lightgray;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .resultTableHead {
+        font-size: 0.9rem;
+    }
+    .resultTableBody {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .result {
+        margin: 0;
+        border: 1px solid $body-bcolor;
+        padding: 2rem 1rem;
+    }
+    .resultTableHead,
+    .resultTableBody {
+        grid-template-columns: 1fr 7fr;
+    }
+    .resultTableSub {
+        display: none;
+    }
+}
