@@ -30,7 +30,9 @@ export default function Result() {
                     return (
                         <div className={styles.resultTableBody} key={"result-result-" + i}>
                             <p>{i + 1}</p>
-                            <p>{item.name}</p>
+                            <p>
+                                {item.name}_{item.place1}_{item.place2}
+                            </p>
                             <p className={styles.resultTableSub}>{item.price.toLocaleString()}원</p>
                         </div>
                     );

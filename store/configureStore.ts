@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import pageIndex from "./modules/mypage";
 import pageIndexGroup from "./modules/grouppage";
+import bandRooms from "./modules/bandrooms";
 
 const store = configureStore({
     reducer: {
         index: pageIndex.reducer,
         groupIndex: pageIndexGroup.reducer,
+        bandRooms: bandRooms.reducer,
     },
     devTools: process.env.NODE_ENV === "development",
 });
