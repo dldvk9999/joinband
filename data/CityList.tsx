@@ -1,4 +1,8 @@
-const list = {
+interface CityListType {
+    [key: string]: Array<string>;
+}
+
+const list: CityListType = {
     서울: [
         "종로구",
         "중구",

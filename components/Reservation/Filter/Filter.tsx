@@ -1,7 +1,7 @@
 import styles from "./Filter.module.scss";
 import Image from "next/image";
 import { CityList } from "../../../data/CityList";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface CitiesType {
     [key: string]: Array<string>;

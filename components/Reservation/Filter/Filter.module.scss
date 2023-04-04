@@ -2,6 +2,8 @@
     @include bcolor($white, $black);
     @include border-radius(1px solid transparent, 3rem);
     padding: 2rem;
+    position: sticky;
+    top: 0px;
     & > p {
         font-weight: 700;
     }
@@ -9,6 +11,8 @@
         @include border-radius(1px solid transparent, 2rem);
         background-color: $lightgray;
         padding: 1rem;
+        max-height: calc(100vh - 8rem);
+        overflow-y: scroll;
     }
 }
 
@@ -58,4 +62,33 @@
     opacity: 0;
     height: 0;
     z-index: -1;
+}
+
+@media (max-width: 1200px) {
+    .filterListTitle,
+    .filterListSub {
+        width: 10rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .filter {
+        padding: 2rem 1rem;
+    }
+    .filterListTitle,
+    .filterListSub {
+        font-size: 0.8rem;
+        width: 8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .filter,
+    .filterListTitle,
+    .filterListSub {
+        width: 100%;
+    }
+    .filter {
+        position: inherit;
+    }
 }

@@ -1,6 +1,12 @@
 .reservation {
-    @include view(flex, center, center);
+    @include view(flex, center, flex-start);
     width: 100%;
     min-height: 100vh;
     padding: 6rem 0;
+}
+
+@media (max-width: 400px) {
+    .reservation {
+        flex-direction: column;
+    }
 }
