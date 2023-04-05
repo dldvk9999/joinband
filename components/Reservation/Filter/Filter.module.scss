@@ -37,7 +37,7 @@
 .filterListSub {
     @include view(flex, flex-start, center);
     padding-left: 1rem;
-    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out, visibility 0.5s ease-in-out;
     opacity: 1;
     height: 1.5rem;
 }
@@ -61,7 +61,7 @@
 .filterHidden {
     opacity: 0;
     height: 0;
-    z-index: -1;
+    visibility: hidden;
 }
 
 @media (max-width: 1200px) {
