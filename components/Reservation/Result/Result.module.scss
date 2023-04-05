@@ -8,6 +8,18 @@
     padding: 2rem;
 }
 
+.resultTitle {
+    @include view(flex, space-between, center);
+    width: 100%;
+    & > div {
+        & > select {
+            @include area(6rem, 2.5rem);
+            padding: 0;
+            outline: none;
+        }
+    }
+}
+
 .resultTable {
     width: 100%;
     text-align: center;
@@ -19,6 +31,7 @@
 .resultTableBody {
     @include view(grid, center, center);
     grid-template-columns: 1fr 10fr 2fr;
+    white-space: nowrap;
 }
 
 .resultTableHead {
@@ -28,9 +41,18 @@
     white-space: nowrap;
 }
 
-.resultTableBody:hover {
-    background-color: $lightgray;
-    cursor: pointer;
+.resultTableBody {
+    & > p > span {
+        @include border-radius(1px solid $lightgray, 3rem);
+        @include bcolor($lightgray, $black);
+        font-size: 0.6rem;
+        padding: 0.3rem 0.7rem;
+        margin-left: 0.4rem;
+    }
+    &:hover {
+        background-color: $lightgray;
+        cursor: pointer;
+    }
 }
 
 .resultTableNone {
@@ -40,6 +62,17 @@
     &:hover {
         background-color: transparent;
     }
+}
+
+.resultLoading {
+    @include view(flex, center, center);
+    color: $black;
+    padding: 3rem;
+    font-size: 2rem;
+}
+
+.resultLoadingHide {
+    display: none;
 }
 
 @media (max-width: 900px) {
