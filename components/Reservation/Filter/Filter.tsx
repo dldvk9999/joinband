@@ -57,19 +57,23 @@ export default function Filter() {
         } else {
             tmpRedux[key] = tmpRedux[key].filter((el) => el !== cities[key][index - 1]);
         }
-        handleBandRooms(tmpRedux);
 
         // 세부 필터가 모두 같은 값일 때 제목 필터도 같은 값으로 변경
         if (arrayCompare(tmp, true)) {
             tmp[0] = true;
             tabCheckStateIndeterminate(keyNumber, false);
+            tmpRedux[key] = [...CityList[key]];
         } else if (arrayCompare(tmp, false)) {
             tmp[0] = false;
             tabCheckStateIndeterminate(keyNumber, false);
+            tmpRedux[key] = [];
         } else {
             tabCheckStateIndeterminate(keyNumber, true);
         }
         setCheckCities({ ...checkCities, [key]: tmp });
+
+        // Redux 전역 변수 저장
+        handleBandRooms(tmpRedux);
     }
 
     // 필터 - 세부 필터 오픈 상태 변경
