@@ -97,10 +97,6 @@ export default function Filter() {
     }, []);
 
     useEffect(() => {
-        console.log(bandRoom);
-    }, [bandRoom]);
-
-    useEffect(() => {
         setOpen(Array.from({ length: Object.keys(cities).length }, () => false));
 
         // 각 체크박스 초기화
