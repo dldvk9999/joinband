@@ -33,6 +33,15 @@
     cursor: pointer;
 }
 
+.resultTableNone {
+    grid-template-columns: 13fr;
+    cursor: auto !important;
+    height: 20rem;
+    &:hover {
+        background-color: transparent;
+    }
+}
+
 @media (max-width: 900px) {
     .resultTableHead {
         font-size: 0.9rem;
@@ -51,6 +60,9 @@
     .resultTableHead,
     .resultTableBody {
         grid-template-columns: 1fr 7fr;
+    }
+    .resultTableNone {
+        grid-template-columns: 8fr;
     }
     .resultTableSub {
         display: none;

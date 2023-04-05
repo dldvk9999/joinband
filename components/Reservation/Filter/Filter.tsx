@@ -74,6 +74,17 @@ export default function Filter() {
 
         // Redux 전역 변수 저장
         handleBandRooms(tmpRedux);
+
+        // Redux Array 중 '서울: []' 같은 경우 '서울'에 대한 key 값 제거
+        if (Object.keys(bandRoom.value).length) {
+            let tmp: CitiesType = {};
+            Object.keys(tmpRedux).map((item) => {
+                if (tmpRedux[item].length !== 0) {
+                    tmp[item] = [...tmpRedux[item]];
+                }
+            });
+            handleBandRooms(tmp);
+        }
     }
 
     // 필터 - 세부 필터 오픈 상태 변경
