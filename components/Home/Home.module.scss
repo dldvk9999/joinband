@@ -111,3 +111,16 @@
         }
     }
 }
+
+.homeEnd {
+    @include area(60%, 7rem);
+    @include view(flex, center, center);
+    @include border-radius(1px solid transparent, 2rem);
+    @include animation("gradient 15s ease infinite");
+    color: $white;
+    margin: 4rem auto;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+}

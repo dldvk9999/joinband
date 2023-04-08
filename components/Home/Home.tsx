@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
+import Section3 from "./Section3";
 
 const SectionCount = 2;
 
@@ -57,6 +58,9 @@ export default function Home() {
 
             {/* 홈 - ICON 부분 */}
             <Section2 isView={view[1]} />
+
+            {/* 홈 - 모든 게시판 출력 */}
+            <Section3 />
         </main>
     );
 }
