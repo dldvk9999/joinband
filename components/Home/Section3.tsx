@@ -1,14 +1,21 @@
+import { useEffect, useState } from "react";
 import styles from "./Home.module.scss";
 import Link from "next/link";
 
 export default function Section3() {
+    const [isLogin, setLogin] = useState(false);
+
     function pageTo() {
-        if (localStorage["id"]) {
+        if (isLogin) {
             return "/memberjoin";
         } else {
             return "/signup";
         }
     }
+
+    useEffect(() => {
+        setLogin(localStorage["id"] ? true : false);
+    }, []);
 
     return (
         <section>
