@@ -27,7 +27,7 @@ export default function Grouppage() {
     useEffect(() => {
         const groupData = data.group.filter((item) => item.id === ~~params!);
         if (params && groupData.length === 0) {
-            alert("사용자가 존재하지 않습니다.");
+            alert("해당 그룹이 존재하지 않습니다.");
             window.history.back();
         } else {
             pageView(~~params!);

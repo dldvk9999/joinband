@@ -18,8 +18,8 @@ export default function DeleteUser(props: { id: number }) {
     }
 
     useEffect(() => {
-        if (data.id !== props.id) {
-            alert("등록되지 않은 id 입니다.");
+        if (!data.group.map((el) => el.id).includes(props.id)) {
+            alert("등록되지 않은 그룹 id 입니다.");
             window.history.back();
         }
     }, []);
