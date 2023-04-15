@@ -21,7 +21,9 @@ export default function Header() {
 
     // nav close
     function closeNav() {
-        nav.current!.classList.remove("active");
+        if (nav.current?.classList.contains("active")) {
+            nav.current.classList.remove("active");
+        }
     }
 
     function logout() {
@@ -68,7 +70,11 @@ export default function Header() {
                 {!isMobile &&
                     HeaderRouter.map((item, index) => {
                         return (
-                            <p onClick={() => locationTo("/" + HeaderLink[index])} key={"HeaderRouter-" + index}>
+                            <p
+                                onClick={() => locationTo("/" + HeaderLink[index])}
+                                className={styles.headerBtn}
+                                key={"HeaderRouter-" + index}
+                            >
                                 {item}
                             </p>
                         );
@@ -80,15 +86,21 @@ export default function Header() {
                 <div>
                     {isLogin ? (
                         <>
-                            <p onClick={() => locationTo("/mypage/" + myId)}>마이페이지</p>
+                            <p onClick={() => locationTo("/mypage/" + myId)} className={styles.headerBtn}>
+                                마이페이지
+                            </p>
                             <Link href={"/"} onClick={logout}>
                                 로그아웃
                             </Link>
                         </>
                     ) : (
                         <>
-                            <p onClick={() => locationTo("/login")}>로그인</p>
-                            <p onClick={() => locationTo("/signup")}>회원가입</p>
+                            <p onClick={() => locationTo("/login")} className={styles.headerBtn}>
+                                로그인
+                            </p>
+                            <p onClick={() => locationTo("/signup")} className={styles.headerBtn}>
+                                회원가입
+                            </p>
                         </>
                     )}
                 </div>
@@ -120,6 +132,7 @@ export default function Header() {
                                     return (
                                         <p
                                             onClick={() => locationTo("/" + HeaderLink[index])}
+                                            className={styles.headerBtn}
                                             key={"HeaderRouter-" + index}
                                         >
                                             {item}
@@ -142,8 +155,12 @@ export default function Header() {
                                     </>
                                 ) : (
                                     <>
-                                        <p onClick={() => locationTo("/login")}>로그인</p>
-                                        <p onClick={() => locationTo("/signup")}>회원가입</p>
+                                        <p onClick={() => locationTo("/login")} className={styles.headerBtn}>
+                                            로그인
+                                        </p>
+                                        <p onClick={() => locationTo("/signup")} className={styles.headerBtn}>
+                                            회원가입
+                                        </p>
                                     </>
                                 )}
                             </div>

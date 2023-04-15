@@ -26,6 +26,13 @@
     }
 }
 
+.headerBtn {
+    cursor: pointer;
+    &:hover {
+        color: $a-tag-color;
+    }
+}
+
 .headerLogo > a {
     @include view(flex, center, center);
     font-size: 1.4rem;
