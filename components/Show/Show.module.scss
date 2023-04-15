@@ -35,6 +35,7 @@
         & > th {
             border-top: 1px solid $black;
             border-bottom: 1px solid $black;
+            white-space: nowrap;
         }
         & > :nth-child(1) {
             width: 10%;
@@ -84,5 +85,17 @@
     .show > div {
         padding: 3rem 1.5rem;
         width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .show > div > div:first-child {
+        flex-direction: column;
+    }
+    .showTableHead > tr > th {
+        font-size: 0.5rem;
+    }
+    .showTableFoot > button {
+        font-size: 0.6rem;
     }
 }

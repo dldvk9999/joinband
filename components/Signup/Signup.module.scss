@@ -1,7 +1,6 @@
 .login {
     @include view(flex, center, center);
     @include area(100%, 100vh);
-    min-width: 400px;
 
     & > img {
         @include area(100%, 100vh);
@@ -14,7 +13,6 @@
     & > form {
         @include view(flex, center, center);
         @include border-radius(1px solid transparent, 3rem);
-        width: 30rem;
         margin-top: $headerHeight;
         flex-direction: column;
         z-index: 1;
@@ -109,8 +107,8 @@
     }
 }
 
-@media (max-width: 400px) {
-    .login {
-        padding: 0;
+@media (max-width: 300px) {
+    .login > form {
+        padding: 0.6rem;
     }
 }
