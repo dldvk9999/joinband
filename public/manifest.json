@@ -1,0 +1,16 @@
+{
+    "theme_color": "#0056b3",
+    "background_color": "#0056b3",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "JOINBAND",
+    "short_name": "JOINBAND",
+    "icons": [
+        {
+            "src": "/logo.webp",
+            "sizes": "384x384",
+            "type": "image/webp"
+        }
+    ]
+}
