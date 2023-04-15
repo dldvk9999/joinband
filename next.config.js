@@ -30,7 +30,6 @@ const config = {
 const nextConfig = nextPWA({
     dest: "public",
     // disable: !isProduction,
-    runtimeCaching: [],
     runtimeCaching: runtimeCaching,
 })(config);
 
