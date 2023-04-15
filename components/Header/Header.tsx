@@ -15,19 +15,26 @@ export default function Header() {
     const nav = useRef<HTMLElement>(null);
 
     // nav open
-    function openNav(nav: any) {
+    function openNav() {
         nav.current!.classList.add("active");
     }
 
     // nav close
-    function closeNav(nav: any) {
+    function closeNav() {
         nav.current!.classList.remove("active");
     }
 
     function logout() {
+        closeNav();
         localStorage.removeItem("id");
         localStorage.removeItem("userid");
         window.location.href = "/";
+    }
+
+    // 페이지 이동
+    function locationTo(link: string) {
+        window.location.href = link;
+        closeNav();
     }
 
     useEffect(() => {
@@ -61,9 +68,9 @@ export default function Header() {
                 {!isMobile &&
                     HeaderRouter.map((item, index) => {
                         return (
-                            <Link href={"/" + HeaderLink[index]} key={"HeaderRouter-" + index}>
+                            <p onClick={() => locationTo("/" + HeaderLink[index])} key={"HeaderRouter-" + index}>
                                 {item}
-                            </Link>
+                            </p>
                         );
                     })}
             </div>
@@ -73,22 +80,22 @@ export default function Header() {
                 <div>
                     {isLogin ? (
                         <>
-                            <Link href={"/mypage/" + myId}>마이페이지</Link>
+                            <p onClick={() => locationTo("/mypage/" + myId)}>마이페이지</p>
                             <Link href={"/"} onClick={logout}>
                                 로그아웃
                             </Link>
                         </>
                     ) : (
                         <>
-                            <Link href={"/login"}>로그인</Link>
-                            <Link href={"/signup"}>회원가입</Link>
+                            <p onClick={() => locationTo("/login")}>로그인</p>
+                            <p onClick={() => locationTo("/signup")}>회원가입</p>
                         </>
                     )}
                 </div>
             ) : (
                 <>
                     <div>
-                        <button className={styles.headerNavBtn} onClick={() => openNav(nav)} aria-label="menu">
+                        <button className={styles.headerNavBtn} onClick={() => openNav()} aria-label="menu">
                             <svg viewBox="0 0 24 24" width="24" height="24">
                                 <path d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z" />
                             </svg>
@@ -99,7 +106,7 @@ export default function Header() {
                         <div className={styles.headerNavClose}>
                             <button
                                 className={styles.headerNavBtn}
-                                onClick={() => closeNav(nav)}
+                                onClick={() => closeNav()}
                                 aria-label="navigation close button"
                             >
                                 <svg viewBox="0 0 120.64 122.88" width="17" height="17">
@@ -111,15 +118,20 @@ export default function Header() {
                             <div>
                                 {HeaderRouter.map((item, index) => {
                                     return (
-                                        <Link href={"/" + HeaderLink[index]} key={"HeaderRouter-" + index}>
+                                        <p
+                                            onClick={() => locationTo("/" + HeaderLink[index])}
+                                            key={"HeaderRouter-" + index}
+                                        >
                                             {item}
-                                        </Link>
+                                        </p>
                                     );
                                 })}
                                 <hr />
                                 {isLogin ? (
                                     <>
-                                        <Link href={"/logout"}>로그아웃</Link>
+                                        <Link href={"/logout"} onClick={closeNav}>
+                                            로그아웃
+                                        </Link>
                                         <Image
                                             src={"/profile.webp"}
                                             alt={"logo"}
@@ -130,8 +142,8 @@ export default function Header() {
                                     </>
                                 ) : (
                                     <>
-                                        <Link href={"/login"}>로그인</Link>
-                                        <Link href={"/signup"}>회원가입</Link>
+                                        <p onClick={() => locationTo("/login")}>로그인</p>
+                                        <p onClick={() => locationTo("/signup")}>회원가입</p>
                                     </>
                                 )}
                             </div>
