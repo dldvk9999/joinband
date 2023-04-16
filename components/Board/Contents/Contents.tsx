@@ -3,6 +3,15 @@ import { useEffect, useState } from "react";
 import styles from "./Contents.module.scss";
 import { BoardList } from "../../../data/BoardList";
 import Link from "next/link";
+import Image from "next/image";
+
+interface BoardCommentListType {
+    commentId: number;
+    userId: number;
+    user: string;
+    time: string;
+    data: string;
+}
 
 interface BoardListType {
     number: number;
@@ -11,12 +20,15 @@ interface BoardListType {
     writer: string;
     date: string;
     view: number;
+    comment: Array<BoardCommentListType>;
 }
 
 export default function Contents() {
     const router = useRouter();
     const { params } = router.query;
     const [number, setNumber] = useState(1);
+    const [comment, setComment] = useState("");
+    const [myId, setMyId] = useState(0);
     const [contents, setContents] = useState<BoardListType>({
         number: 0,
         title: "",
@@ -24,7 +36,33 @@ export default function Contents() {
         writer: "",
         date: "",
         view: 0,
+        comment: [],
     });
+
+    // 댓글 추가
+    function addComment() {
+        const TIME_ZONE = 9 * 60 * 60 * 1000;
+        const date = new Date();
+        const commentData = {
+            commentId: contents.comment.length,
+            userId: 1,
+            user: "Admin",
+            time: new Date(date.getTime() + TIME_ZONE).toISOString().replace("T", " ").slice(0, -5).toString(),
+            data: comment,
+        };
+        setContents((con) => ({ ...con, comment: con.comment.concat(commentData) }));
+        setComment("");
+    }
+
+    // 댓글 삭제
+    function deleteComment(commentId: number) {
+        if (confirm("댓글을 삭제하시겠습니까?")) {
+            let commentList = [...contents.comment];
+            commentList = commentList.filter((item) => item.commentId !== commentId);
+            setContents((con) => ({ ...con, comment: commentList }));
+            alert("삭제완료");
+        }
+    }
 
     // 게시물 삭제
     function deleteContent() {
@@ -41,6 +79,10 @@ export default function Contents() {
     useEffect(() => {
         setNumber(~~params! ? ~~params! : 1);
     }, [params]);
+
+    useEffect(() => {
+        setMyId(~~localStorage["userid"]);
+    }, []);
 
     return (
         <main>
@@ -68,9 +110,39 @@ export default function Contents() {
                     </div>
                     <hr />
                     <div className={styles.contentWrite}>
-                        <textarea className={styles.contentWriteComment} placeholder={"댓글을 입력해주세요"}></textarea>
-                        <button>댓글달기</button>
+                        <textarea
+                            className={styles.contentWriteComment}
+                            placeholder={"댓글을 입력해주세요"}
+                            onChange={(e) => setComment(e.target.value)}
+                            value={comment}
+                        ></textarea>
+                        <button onClick={addComment}>댓글달기</button>
                     </div>
+                    {contents.comment.map((item, i) => {
+                        return (
+                            <div className={styles.contentComment} key={"board-comment-" + i}>
+                                <Link href={"/mypage/" + item.userId}>
+                                    <Image
+                                        src={"/profile.webp"}
+                                        alt={"profile"}
+                                        width={50}
+                                        height={50}
+                                        loading="lazy"
+                                    />
+                                    <p>{item.user}</p>
+                                </Link>
+                                <div>
+                                    <div>
+                                        <p>{item.time}</p>
+                                        <p onClick={() => deleteComment(item.commentId)} hidden={item.userId !== myId}>
+                                            삭제
+                                        </p>
+                                    </div>
+                                    <p>{item.data}</p>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
         </main>
