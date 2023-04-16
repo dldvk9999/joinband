@@ -87,7 +87,7 @@ export default function Result() {
                         <option value={4}>가격 낮은순</option>
                         <option value={5}>가격 높은순</option>
                     </select>
-                    <button>등록하기</button>
+                    <button onClick={() => (window.location.href = "/reservationwrite")}>등록하기</button>
                 </div>
             </div>
             <div className={styles.resultTable}>
