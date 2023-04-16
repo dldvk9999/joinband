@@ -23,6 +23,8 @@ for (let i = 0; i < 100; i++) {
         place1: city,
         place2: CityList[city][Math.floor(Math.random() * CityList[city].length)],
         price: Math.round(Math.random() * 10) * 1000 + 10000,
+        data: "넓고 깨끗하고 악기 대여도 가능합니다~",
+        link: "about:link",
     });
 }
 

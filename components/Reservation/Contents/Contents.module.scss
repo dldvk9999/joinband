@@ -1,0 +1,82 @@
+.contents {
+    @include view(flex, center, center);
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 6rem 0;
+    & > div {
+        @include border-radius(1px solid transparent, 3rem);
+        @include bcolor($white, $black);
+        padding: 3rem;
+        width: 80%;
+    }
+}
+
+.contentHeader {
+    @include view(flex, space-between, center);
+    & > div {
+        @include view(flex, center, center);
+        flex-wrap: wrap;
+        color: $gray;
+        gap: 0.5rem;
+        & > p {
+            @include border-radius(1px solid $lightgray, 2rem);
+            font-size: 0.75rem;
+            color: $gray;
+            padding: 0.5rem 0.75rem;
+            margin: 0;
+            &::before {
+                content: "#";
+            }
+        }
+    }
+}
+
+.contentsContent {
+    min-height: 20rem;
+}
+
+.contentContentMenu {
+    @include view(flex, flex-end, center);
+    & > button {
+        @include bcolor($lightgray, $black);
+        @include area(fit-content, fit-content);
+        padding: 0.5rem 1rem;
+    }
+}
+
+.contentWrite {
+    @include view(flex, center, center);
+    & > button {
+        height: 5rem;
+        border-radius: 0.4rem;
+    }
+}
+
+.contentBtn {
+    @include view(flex, center, center);
+    width: 100%;
+    & > a {
+        @include area(20rem, 3rem);
+        @include border-radius(1px solid transparent, 3rem);
+        @include bcolor($a-tag-color, $white);
+        @include view(flex, center, center);
+        font-size: 1rem;
+        &:hover {
+            @include animation("button-pop .3s ease-in-out");
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .contentHeader {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 400px) {
+    .contents > div {
+        width: 100%;
+        padding: 1.5rem;
+    }
+}

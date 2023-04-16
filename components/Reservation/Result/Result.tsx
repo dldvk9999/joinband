@@ -3,6 +3,7 @@ import styles from "./Result.module.scss";
 import { BandRoomList } from "../../../data/BandRoomList";
 import { RootState } from "../../../store/configureStore";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 interface RoomsType {
     id: number;
@@ -98,7 +99,11 @@ export default function Result() {
                 {rooms ? (
                     rooms.map((item, i) => {
                         return (
-                            <div className={styles.resultTableBody} key={"result-result-" + i}>
+                            <Link
+                                href={"/reservation/" + (i + 1)}
+                                className={styles.resultTableBody}
+                                key={"result-result-" + i}
+                            >
                                 <p>{item.id}</p>
                                 <p>
                                     {item.name}
@@ -106,7 +111,7 @@ export default function Result() {
                                     <span>{item.place2}</span>
                                 </p>
                                 <p className={styles.resultTableSub}>{item.price?.toLocaleString()}원</p>
-                            </div>
+                            </Link>
                         );
                     })
                 ) : (
