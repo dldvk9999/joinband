@@ -50,6 +50,10 @@
 
 .contentContentImage {
     @include view(flex, center, center);
+    flex-direction: column;
+    & > div {
+        width: 100%;
+    }
 }
 
 .contentImage {

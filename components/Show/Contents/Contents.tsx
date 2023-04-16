@@ -9,6 +9,7 @@ interface ShowListType {
     number: number;
     title: string;
     content: string;
+    image: string;
     writer: string;
     date: string;
     view: number;
@@ -22,6 +23,7 @@ export default function Contents() {
         number: 0,
         title: "",
         content: "",
+        image: "",
         writer: "",
         date: "",
         view: 0,
@@ -71,19 +73,17 @@ export default function Contents() {
                         </div>
                         <div className={styles.contentContentImage}>
                             <Image
-                                src={contents.content}
+                                src={contents.image}
                                 alt={"Show Image"}
                                 width={100}
                                 height={200}
                                 priority
                                 className={styles.contentImage}
                             />
+                            <div>
+                                <p>{contents.content}</p>
+                            </div>
                         </div>
-                    </div>
-                    <hr />
-                    <div className={styles.contentWrite}>
-                        <textarea className={styles.contentWriteComment} placeholder={"댓글을 입력해주세요"}></textarea>
-                        <button>댓글달기</button>
                     </div>
                 </div>
             </section>
