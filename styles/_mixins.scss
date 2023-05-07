@@ -79,3 +79,12 @@
         background-position: 0% 50%;
     }
 }
+
+@include keyframe(carousel-infinite) {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

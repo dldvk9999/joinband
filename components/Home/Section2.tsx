@@ -1,57 +1,45 @@
 import styles from "./Home.module.scss";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-const Instument = ["guitar", "drum", "mic", "piano"];
-const MaxLevel = Instument.length + 1;
+import { data } from "../../data/ReviewList";
 
 export default function Section2(props: { isView: boolean }) {
-    const [level, setLevel] = useState(Array.from({ length: MaxLevel }, () => false));
-
-    function slideImage(state: boolean, index: number) {
-        const transformIcon = [
-            styles.homeBandTransform1,
-            styles.homeBandTransform2,
-            styles.homeBandTransform3,
-            styles.homeBandTransform4,
-        ];
-        return state ? styles.homeBandTransformCenter : transformIcon[index];
-    }
+    const [reviewData] = useState(data.concat(data));
 
     useEffect(() => {
-        if (props.isView)
-            for (let i = 0; i < MaxLevel; i++) {
-                setTimeout(
-                    () =>
-                        setLevel(
-                            Array.from({ length: i + 1 }, () => true).concat(
-                                Array.from({ length: MaxLevel - i - 1 }, () => false)
-                            )
-                        ),
-                    500 * i + 500
-                );
-            }
-        else setLevel(Array.from({ length: MaxLevel }, () => false));
+        if (props.isView) {
+        }
     }, [props.isView]);
 
     return (
-        <section className={styles.homeBand}>
-            <div className={`${styles.homeBandImages} ${level[MaxLevel - 1] && styles.homeBandShowBorder}`}>
-                {Instument.map((item, index) => {
+        <section className={styles.homeReview}>
+            <div className={styles.homeReviewCards}>
+                {reviewData.map((item, i) => {
                     return (
-                        <Image
-                            src={"/home/" + item + ".webp"}
-                            alt={item}
-                            width={100}
-                            height={100}
-                            className={`${level[index] && styles.homeBandSlide} ${
-                                level[MaxLevel - 1] && styles.homeBandHideBorder
-                            } ${slideImage(level[index], index)}`}
-                            key={"instrument-" + index}
-                        />
+                        <div className={styles.homeReviewCard} key={"home-review-" + i}>
+                            <div className={styles.homeReviewCardProfile}>
+                                <div className={`${styles.homeReviewImage} ${styles[`homeReviewImage${i % 8}`]}`} />
+                            </div>
+                            <p>
+                                <b>{item.name}</b>
+                            </p>
+                            <p>{item.review}</p>
+                            <div className={styles.homeReviewRate}>
+                                <Image
+                                    src={"/home/rate.webp"}
+                                    alt={"rate"}
+                                    width={70}
+                                    height={70}
+                                    loading="lazy"
+                                    className={styles.homeReviewRateImage}
+                                />
+                                <p>{item.rate}점</p>
+                            </div>
+                        </div>
                     );
                 })}
             </div>
+            <h2 className={styles.homeReviewFooter}>많은 사람들이 함께한 조인밴드!</h2>
         </section>
     );
 }
