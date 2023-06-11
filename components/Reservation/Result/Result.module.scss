@@ -84,11 +84,20 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 730px) {
     .result {
         margin: 0;
         border: 1px solid $body-bcolor;
         padding: 2rem 1rem;
+    }
+    .resultTitle {
+        & > h1 {
+            width: 100%;
+            word-break: keep-all;
+        }
+        & > div {
+            text-align: end;
+        }
     }
     .resultTableHead,
     .resultTableBody {
