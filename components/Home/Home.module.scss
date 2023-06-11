@@ -56,7 +56,7 @@
 ** Section2. Home - Band
 */
 .homeReview {
-    @include view(flex, center, center);
+    @include view(flex, center, flex-start);
     flex-direction: column;
     gap: 2rem;
     height: 100vh;
@@ -76,7 +76,7 @@
     flex-direction: column;
     padding: 2rem 4rem;
     margin-right: 3rem;
-    box-shadow: 10px 10px 20px 10px $gray;
+    box-shadow: 5px 0px 19px 1px $gray;
 
     & > p:nth-child(2) {
         font-size: 2rem;
@@ -121,6 +121,7 @@
     @include bcolor($white, $black);
     @include border-radius(1px solid transparent, 3rem);
     padding: 1rem 2rem;
+    margin: 0 auto;
 }
 
 /* 

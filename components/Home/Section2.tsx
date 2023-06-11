@@ -1,15 +1,14 @@
 import styles from "./Home.module.scss";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { data } from "../../data/ReviewList";
 
 export default function Section2(props: { isView: boolean }) {
-    const [reviewData] = useState(data.concat(data));
+    const reviewData = data.concat(data);
 
-    useEffect(() => {
-        if (props.isView) {
-        }
-    }, [props.isView]);
+    // useEffect(() => {
+    //     if (props.isView) {
+    //     }
+    // }, [props.isView]);
 
     return (
         <section className={styles.homeReview}>
