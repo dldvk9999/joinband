@@ -67,6 +67,12 @@
         border-left: 1px solid transparent;
         border-top: 1px solid $sepline;
         border-radius: 0 0 3rem 3rem;
-        width: 15rem;
+        width: 80%;
+    }
+}
+
+@media (max-width: 300px) {
+    .information {
+        width: 100%;
     }
 }

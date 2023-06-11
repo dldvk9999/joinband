@@ -43,6 +43,12 @@
         border-right: 1px solid transparent;
         border-bottom: 1px solid $sepline;
         border-radius: 3rem 3rem 0 0;
-        width: 15rem;
+        width: 80%;
+    }
+}
+
+@media (max-width: 300px) {
+    .nav {
+        width: 100%;
     }
 }

@@ -60,6 +60,15 @@
         border-left: 1px solid transparent;
         border-top: 1px solid $sepline;
         border-radius: 0 0 3rem 3rem;
-        width: 15rem;
+        width: 80%;
+    }
+    .videoListLink {
+        padding: 0 1rem 2rem 1rem;
+    }
+}
+
+@media (max-width: 300px) {
+    .video {
+        width: 100%;
     }
 }
