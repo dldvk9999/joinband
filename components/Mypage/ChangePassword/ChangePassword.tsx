@@ -65,7 +65,7 @@ export default function ChangePassword(props: { id: number }) {
                     <input type="password" onChange={(e) => setNewPass(e.target.value)} value={newPass} minLength={8} />
                 </div>
                 <div>
-                    <p>신규 비밀번호 확인</p>
+                    <p>비밀번호 확인</p>
                     <input
                         type="password"
                         onChange={(e) => setNewPass2(e.target.value)}
