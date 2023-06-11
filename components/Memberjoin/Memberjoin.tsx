@@ -35,7 +35,7 @@ export default function Memberjoin() {
                     <div className={styles.memberjoinCards}>
                         <h2>{MemberjoinList[i].title}</h2>
                         <Image
-                            src={"/home/guitar.webp"}
+                            src={"/home/home5.webp"}
                             alt={"recruit"}
                             width={100}
                             height={100}
