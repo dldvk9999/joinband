@@ -11,6 +11,7 @@ interface videoLinkType {
 export default function Video(props: { id: number }) {
     const [linkList, setLinkList] = useState<Array<videoLinkType>>([]);
     const [isView, setView] = useState(Array.from({ length: linkList.length }, () => false));
+    const defaultVideoLink = "https://www.youtube.com/watch?v=비디오링크";
 
     function videoView(index: number) {
         let tmp = [...isView];
@@ -20,10 +21,12 @@ export default function Video(props: { id: number }) {
 
     // 비디오 링크 수정
     function editLink(id: number, index: number) {
-        const link = prompt("수정할 비디오 링크 입력", "https://www.youtube.com/watch?v=비디오링크");
-        const rest = linkList.splice(index, 1, { id: id, link: link ? link : "" });
-        rest.shift();
-        setLinkList((links) => links.concat(rest));
+        const link = prompt("수정할 비디오 링크 입력", defaultVideoLink);
+        if (link) {
+            const rest = linkList.splice(index, 1, { id: id, link: link ? link : "" });
+            rest.shift();
+            setLinkList((links) => links.concat(rest));
+        }
     }
 
     // 비디오 링크 삭제
@@ -36,15 +39,17 @@ export default function Video(props: { id: number }) {
 
     // 새 링크 업로드 (앞에서부터 적재)
     function upload() {
-        const link = prompt("비디오 링크 입력", "https://www.youtube.com/watch?v=비디오링크");
-        setLinkList((links) => [
-            {
-                id: 5,
-                link: link ? link : "",
-            },
-            ...links,
-        ]);
-        setView([...isView, false]);
+        const link = prompt("비디오 링크 입력", defaultVideoLink);
+        if (link) {
+            setLinkList((links) => [
+                {
+                    id: 5,
+                    link: link ? link : "",
+                },
+                ...links,
+            ]);
+            setView([...isView, false]);
+        }
     }
 
     useEffect(() => {
