@@ -145,13 +145,15 @@ export default function Header() {
                                         <Link href={"/logout"} onClick={closeNav}>
                                             로그아웃
                                         </Link>
-                                        <Image
-                                            src={"/profile.webp"}
-                                            alt={"logo"}
-                                            width={40}
-                                            height={40}
-                                            priority
-                                        ></Image>
+                                        <p onClick={() => locationTo("/mypage/" + myId)} className={styles.headerBtn}>
+                                            <Image
+                                                src={"/profile.webp"}
+                                                alt={"logo"}
+                                                width={40}
+                                                height={40}
+                                                priority
+                                            ></Image>
+                                        </p>
                                     </>
                                 ) : (
                                     <>
