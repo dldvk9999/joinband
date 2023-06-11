@@ -25,3 +25,10 @@
         font-size: 0.7rem;
     }
 }
+
+@media (max-width: 400px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+}
