@@ -7,7 +7,7 @@ export default function Write() {
     const [body, setBody] = useState("");
     const [place1, setPlace1] = useState("");
     const [place2, setPlace2] = useState("");
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState("");
     const [link, setLink] = useState("");
 
     // 합주실 추가 취소
@@ -19,7 +19,7 @@ export default function Write() {
 
     // 합주실 추가
     function addContents() {
-        if (title === "" || body === "" || place1 === "" || place2 === "" || price === 0 || link === "") {
+        if (title === "" || body === "" || place1 === "" || place2 === "" || price === "" || link === "") {
             alert("모든 입력값을 빈칸없이 채워주세요!");
         } else {
             alert("합주실 등록 완료!");
@@ -65,8 +65,8 @@ export default function Write() {
                     <input
                         type="text"
                         placeholder="시간당 가격을 입력하세요"
-                        onChange={(e) => setPrice(~~e.target.value)}
-                        value={price === 0 ? "" : price}
+                        onChange={(e) => setPrice(e.target.value)}
+                        value={BigInt(price.replaceAll(/[^\d]/gi, "")).toLocaleString() + "원"}
                     />
                     <hr />
                     <textarea
