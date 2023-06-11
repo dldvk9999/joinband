@@ -28,6 +28,7 @@
     & > div {
         @include view(flex, center, center);
         flex-direction: column;
+        gap: 5px;
     }
     & > input {
         height: auto;
