@@ -20,6 +20,11 @@
     grid-template-columns: 1fr 1fr;
     padding: 0.25rem 0;
     border-bottom: 1px solid $lightgray;
+    & > p {
+        min-width: 5rem;
+        text-align: center;
+        word-break: keep-all;
+    }
     & > div {
         @include view(flex, center, center);
         flex-direction: column;
@@ -37,21 +42,33 @@
     }
 }
 
-@media (max-width: 700px) {
-    .write > div {
-        padding: 3rem 1.5rem;
-    }
-}
-
-@media (max-width: 550px) {
+@media (max-width: 730px) {
     .write > div {
         padding: 3rem 1.5rem;
         width: 100%;
     }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 700px) {
+    .write > div {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 400px) {
     .write > div > div > input {
         width: 13rem;
+    }
+    .writeLine > div > input {
+        width: 13rem !important;
+    }
+}
+
+@media (max-width: 350px) {
+    .write > div > div > input {
+        width: 6rem;
+    }
+    .writeLine > div > input {
+        width: 6rem !important;
     }
 }
