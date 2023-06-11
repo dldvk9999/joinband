@@ -44,7 +44,12 @@ export default function DeleteUser(props: { id: number }) {
                 </div>
                 <p>회원 탈퇴 하시겠습니까?</p>
                 <p>현재 비밀번호 입력 후 탈퇴 버튼을 클릭해주세요.</p>
-                <input type="password" onChange={(e) => setOldPass(e.target.value)} value={oldPass} />
+                <input
+                    type="password"
+                    onChange={(e) => setOldPass(e.target.value)}
+                    value={oldPass}
+                    placeholder="비밀번호 입력"
+                />
             </div>
         </section>
     );
