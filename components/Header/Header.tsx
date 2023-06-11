@@ -147,6 +147,7 @@ export default function Header() {
                                         </Link>
                                         <p onClick={() => locationTo("/mypage/" + myId)} className={styles.headerBtn}>
                                             <Image
+                                                className={styles.headerMobileMypageBtn}
                                                 src={"/profile.webp"}
                                                 alt={"logo"}
                                                 width={40}
